@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "129774508111",
+    "project_id": "appandroidios-38136",
+    "storage_bucket": "appandroidios-38136.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:129774508111:android:42ab41428e50035f8cb23a",
+        "android_client_info": {
+          "package_name": "com.mycompany.logyxapp"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCjp9ExZZCKQ7Ebg5gwxZB0ZRrbHL7-nCc"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

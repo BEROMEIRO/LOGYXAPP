@@ -1,0 +1,16 @@
+# Ignorar arquivos do sistema e temporários
+.vscode/
+*.log
+*.tmp
+*.swp
+*.DS_Store
+node_modules/
+
+# Ignorar arquivos gerados pelo Flutter
+build/
+.flutter-plugins
+.flutter-plugins-dependencies
+.dart_tool/
+
+# Ignorar arquivos de configuração com chaves de API
+lib/backend/api_requests/api_calls.dart
