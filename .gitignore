@@ -14,3 +14,4 @@ build/
 
 # Ignorar arquivos de configuração com chaves de API
 lib/backend/api_requests/api_calls.dart
+lib/backend/api_requests/api_manager.dart
