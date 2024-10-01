@@ -5,6 +5,7 @@ import 'package:easy_debounce/easy_debounce.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'lista_o_ss_model.dart';
+
 export 'lista_o_ss_model.dart';
 
 class ListaOSsWidget extends StatefulWidget {
@@ -44,8 +45,80 @@ class _ListaOSsWidgetState extends State<ListaOSsWidget> {
   @override
   void dispose() {
     _model.maybeDispose();
-
     super.dispose();
+  }
+
+  Future<void> _handleDelete() async {
+    bool shouldProceed = false;
+
+    if ((FFAppState().ossList.contains(widget.numOS) == false) &&
+        (widget.botaoExcluir != null)) {
+      FFAppState().ossList = [];
+      FFAppState().isDropdownVisible = false;
+      FFAppState().isFirstDropdownSelected = false;
+      FFAppState().isSecondDropdownSelected = false;
+      FFAppState().isThirdDropdownSelected = false;
+
+      // Exibir o diálogo
+      shouldProceed = await showDialog<bool>(
+            context: context,
+            builder: (alertDialogContext) {
+              return AlertDialog(
+                content: const Text('Caso Removido!'),
+                actions: [
+                  TextButton(
+                    onPressed: () {
+                      Navigator.pop(alertDialogContext, true);
+                    },
+                    child: const Text('Ok'),
+                  ),
+                ],
+              );
+            },
+          ) ??
+          false; // Atribuir o resultado da janela de diálogo a shouldProceed
+    } else {
+      FFAppState().removeFromOssList(widget.numOS!);
+      FFAppState().isFirstDropdownSelected = false;
+      FFAppState().isSecondDropdownSelected = false;
+      FFAppState().isThirdDropdownSelected = false;
+
+      // Exibir o diálogo
+      shouldProceed = await showDialog<bool>(
+            context: context,
+            builder: (alertDialogContext) {
+              return AlertDialog(
+                content: const Text('Caso Removido!'),
+                actions: [
+                  TextButton(
+                    onPressed: () {
+                      Navigator.pop(alertDialogContext, true);
+                    },
+                    child: const Text('Ok'),
+                  ),
+                ],
+              );
+            },
+          ) ??
+          false; // Atribuir o resultado da janela de diálogo a shouldProceed
+    }
+
+    // Verificar se deve prosseguir com a navegação
+    if (shouldProceed) {
+      // Verificar se o widget ainda está montado
+      if (mounted) {
+        Navigator.of(context).pushNamed(
+          'NovoChamado',
+          arguments: <String, dynamic>{
+            kTransitionInfoKey: const TransitionInfo(
+              hasTransition: true,
+              transitionType: PageTransitionType.fade,
+              duration: Duration(milliseconds: 0),
+            ),
+          },
+        );
+      }
+    }
   }
 
   @override
@@ -122,68 +195,8 @@ class _ListaOSsWidgetState extends State<ListaOSsWidget> {
         ),
         FFButtonWidget(
           onPressed: () async {
-            if ((FFAppState().ossList.contains(widget.numOS) == false) &&
-                (widget.botaoExcluir != null)) {
-              FFAppState().ossList = [];
-              FFAppState().isDropdownVisible = false;
-              FFAppState().isFirstDropdownSelected = false;
-              FFAppState().isSecondDropdownSelected = false;
-              FFAppState().isThirdDropdownSelected = false;
-              await showDialog(
-                context: context,
-                builder: (alertDialogContext) {
-                  return AlertDialog(
-                    content: const Text('Caso Removido!'),
-                    actions: [
-                      TextButton(
-                        onPressed: () => Navigator.pop(alertDialogContext),
-                        child: const Text('Ok'),
-                      ),
-                    ],
-                  );
-                },
-              );
-
-              context.goNamed(
-                'NovoChamado',
-                extra: <String, dynamic>{
-                  kTransitionInfoKey: const TransitionInfo(
-                    hasTransition: true,
-                    transitionType: PageTransitionType.fade,
-                    duration: Duration(milliseconds: 0),
-                  ),
-                },
-              );
-            } else {
-              FFAppState().removeFromOssList(widget.numOS!);
-              FFAppState().isFirstDropdownSelected = false;
-              FFAppState().isSecondDropdownSelected = false;
-              FFAppState().isThirdDropdownSelected = false;
-              await showDialog(
-                context: context,
-                builder: (alertDialogContext) {
-                  return AlertDialog(
-                    content: const Text('Caso Removido!'),
-                    actions: [
-                      TextButton(
-                        onPressed: () => Navigator.pop(alertDialogContext),
-                        child: const Text('Ok'),
-                      ),
-                    ],
-                  );
-                },
-              );
-
-              context.goNamed(
-                'NovoChamado',
-                extra: <String, dynamic>{
-                  kTransitionInfoKey: const TransitionInfo(
-                    hasTransition: true,
-                    transitionType: PageTransitionType.fade,
-                    duration: Duration(milliseconds: 0),
-                  ),
-                },
-              );
+            if (mounted) {
+              await _handleDelete(); // Chama o método para lidar com a exclusão
             }
           },
           text: 'Excluir',
@@ -194,7 +207,8 @@ class _ListaOSsWidgetState extends State<ListaOSsWidget> {
           options: FFButtonOptions(
             height: 40.0,
             padding: const EdgeInsetsDirectional.fromSTEB(2.0, 0.0, 5.0, 0.0),
-            iconPadding: const EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
+            iconPadding:
+                const EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
             color: FlutterFlowTheme.of(context).error,
             textStyle: FlutterFlowTheme.of(context).titleSmall.override(
                   fontFamily: 'Readex Pro',

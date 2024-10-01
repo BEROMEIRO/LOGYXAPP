@@ -46,7 +46,8 @@ class _OsWidgetState extends State<OsWidget> {
     super.initState();
     _model = createModel(context, () => OsModel());
 
-    getCurrentUserLocation(defaultLocation: const LatLng(0.0, 0.0), cached: true)
+    getCurrentUserLocation(
+            defaultLocation: const LatLng(0.0, 0.0), cached: true)
         .then((loc) => safeSetState(() => currentUserLocationValue = loc));
     WidgetsBinding.instance.addPostFrameCallback((_) => safeSetState(() {}));
   }
@@ -138,8 +139,8 @@ class _OsWidgetState extends State<OsWidget> {
                 mainAxisSize: MainAxisSize.max,
                 children: [
                   Padding(
-                    padding:
-                        const EdgeInsetsDirectional.fromSTEB(20.0, 20.0, 20.0, 0.0),
+                    padding: const EdgeInsetsDirectional.fromSTEB(
+                        20.0, 20.0, 20.0, 0.0),
                     child: Column(
                       mainAxisSize: MainAxisSize.max,
                       mainAxisAlignment: MainAxisAlignment.center,
@@ -173,8 +174,9 @@ class _OsWidgetState extends State<OsWidget> {
                                   crossAxisAlignment: CrossAxisAlignment.start,
                                   children: [
                                     Padding(
-                                      padding: const EdgeInsetsDirectional.fromSTEB(
-                                          0.0, 0.0, 0.0, 5.0),
+                                      padding:
+                                          const EdgeInsetsDirectional.fromSTEB(
+                                              0.0, 0.0, 0.0, 5.0),
                                       child: Text(
                                         'DADOS DO CHAMADO',
                                         style: FlutterFlowTheme.of(context)
@@ -192,9 +194,8 @@ class _OsWidgetState extends State<OsWidget> {
                                       mainAxisSize: MainAxisSize.max,
                                       children: [
                                         Padding(
-                                          padding:
-                                              const EdgeInsetsDirectional.fromSTEB(
-                                                  0.0, 0.0, 0.0, 5.0),
+                                          padding: const EdgeInsetsDirectional
+                                              .fromSTEB(0.0, 0.0, 0.0, 5.0),
                                           child: Text(
                                             'Ordem de Serviço:',
                                             style: FlutterFlowTheme.of(context)
@@ -209,9 +210,8 @@ class _OsWidgetState extends State<OsWidget> {
                                           ),
                                         ),
                                         Padding(
-                                          padding:
-                                              const EdgeInsetsDirectional.fromSTEB(
-                                                  5.0, 0.0, 0.0, 5.0),
+                                          padding: const EdgeInsetsDirectional
+                                              .fromSTEB(5.0, 0.0, 0.0, 5.0),
                                           child: Text(
                                             valueOrDefault<String>(
                                               widget.parOS,
@@ -234,9 +234,8 @@ class _OsWidgetState extends State<OsWidget> {
                                       mainAxisSize: MainAxisSize.max,
                                       children: [
                                         Padding(
-                                          padding:
-                                              const EdgeInsetsDirectional.fromSTEB(
-                                                  0.0, 0.0, 0.0, 5.0),
+                                          padding: const EdgeInsetsDirectional
+                                              .fromSTEB(0.0, 0.0, 0.0, 5.0),
                                           child: Text(
                                             'Projeto:',
                                             style: FlutterFlowTheme.of(context)
@@ -251,9 +250,8 @@ class _OsWidgetState extends State<OsWidget> {
                                           ),
                                         ),
                                         Padding(
-                                          padding:
-                                              const EdgeInsetsDirectional.fromSTEB(
-                                                  5.0, 0.0, 0.0, 5.0),
+                                          padding: const EdgeInsetsDirectional
+                                              .fromSTEB(5.0, 0.0, 0.0, 5.0),
                                           child: Text(
                                             valueOrDefault<String>(
                                               widget.parProjeto,
@@ -276,9 +274,8 @@ class _OsWidgetState extends State<OsWidget> {
                                       mainAxisSize: MainAxisSize.max,
                                       children: [
                                         Padding(
-                                          padding:
-                                              const EdgeInsetsDirectional.fromSTEB(
-                                                  0.0, 0.0, 0.0, 5.0),
+                                          padding: const EdgeInsetsDirectional
+                                              .fromSTEB(0.0, 0.0, 0.0, 5.0),
                                           child: Text(
                                             'Tipo de Serviço:',
                                             style: FlutterFlowTheme.of(context)
@@ -293,9 +290,8 @@ class _OsWidgetState extends State<OsWidget> {
                                           ),
                                         ),
                                         Padding(
-                                          padding:
-                                              const EdgeInsetsDirectional.fromSTEB(
-                                                  5.0, 0.0, 0.0, 5.0),
+                                          padding: const EdgeInsetsDirectional
+                                              .fromSTEB(5.0, 0.0, 0.0, 5.0),
                                           child: Text(
                                             valueOrDefault<String>(
                                               widget.parTipo,
@@ -318,9 +314,8 @@ class _OsWidgetState extends State<OsWidget> {
                                       mainAxisSize: MainAxisSize.max,
                                       children: [
                                         Padding(
-                                          padding:
-                                              const EdgeInsetsDirectional.fromSTEB(
-                                                  0.0, 0.0, 0.0, 5.0),
+                                          padding: const EdgeInsetsDirectional
+                                              .fromSTEB(0.0, 0.0, 0.0, 5.0),
                                           child: Text(
                                             'Data:',
                                             style: FlutterFlowTheme.of(context)
@@ -335,9 +330,8 @@ class _OsWidgetState extends State<OsWidget> {
                                           ),
                                         ),
                                         Padding(
-                                          padding:
-                                              const EdgeInsetsDirectional.fromSTEB(
-                                                  5.0, 0.0, 0.0, 5.0),
+                                          padding: const EdgeInsetsDirectional
+                                              .fromSTEB(5.0, 0.0, 0.0, 5.0),
                                           child: Text(
                                             valueOrDefault<String>(
                                               widget.parData,
@@ -360,9 +354,8 @@ class _OsWidgetState extends State<OsWidget> {
                                       mainAxisSize: MainAxisSize.max,
                                       children: [
                                         Padding(
-                                          padding:
-                                              const EdgeInsetsDirectional.fromSTEB(
-                                                  0.0, 0.0, 0.0, 5.0),
+                                          padding: const EdgeInsetsDirectional
+                                              .fromSTEB(0.0, 0.0, 0.0, 5.0),
                                           child: Text(
                                             'Status:',
                                             style: FlutterFlowTheme.of(context)
@@ -377,9 +370,8 @@ class _OsWidgetState extends State<OsWidget> {
                                           ),
                                         ),
                                         Padding(
-                                          padding:
-                                              const EdgeInsetsDirectional.fromSTEB(
-                                                  5.0, 0.0, 0.0, 5.0),
+                                          padding: const EdgeInsetsDirectional
+                                              .fromSTEB(5.0, 0.0, 0.0, 5.0),
                                           child: Text(
                                             valueOrDefault<String>(
                                               widget.parStatus,
@@ -402,9 +394,8 @@ class _OsWidgetState extends State<OsWidget> {
                                       mainAxisSize: MainAxisSize.max,
                                       children: [
                                         Padding(
-                                          padding:
-                                              const EdgeInsetsDirectional.fromSTEB(
-                                                  0.0, 0.0, 0.0, 5.0),
+                                          padding: const EdgeInsetsDirectional
+                                              .fromSTEB(0.0, 0.0, 0.0, 5.0),
                                           child: Text(
                                             'Ocorrência:',
                                             style: FlutterFlowTheme.of(context)
@@ -419,9 +410,8 @@ class _OsWidgetState extends State<OsWidget> {
                                           ),
                                         ),
                                         Padding(
-                                          padding:
-                                              const EdgeInsetsDirectional.fromSTEB(
-                                                  5.0, 0.0, 0.0, 5.0),
+                                          padding: const EdgeInsetsDirectional
+                                              .fromSTEB(5.0, 0.0, 0.0, 5.0),
                                           child: Text(
                                             valueOrDefault<String>(
                                               widget.parOcorrencia,
@@ -532,11 +522,8 @@ class _OsWidgetState extends State<OsWidget> {
                                                     child: Padding(
                                                       padding:
                                                           const EdgeInsetsDirectional
-                                                              .fromSTEB(
-                                                                  20.0,
-                                                                  8.0,
-                                                                  0.0,
-                                                                  8.0),
+                                                              .fromSTEB(20.0,
+                                                              8.0, 0.0, 8.0),
                                                       child:
                                                           FlutterFlowIconButton(
                                                         borderColor:
@@ -544,8 +531,8 @@ class _OsWidgetState extends State<OsWidget> {
                                                         borderRadius: 15.0,
                                                         borderWidth: 1.0,
                                                         buttonSize: 60.0,
-                                                        fillColor:
-                                                            const Color(0xFF4898F8),
+                                                        fillColor: const Color(
+                                                            0xFF4898F8),
                                                         icon: Icon(
                                                           Icons
                                                               .camera_alt_rounded,
@@ -594,11 +581,8 @@ class _OsWidgetState extends State<OsWidget> {
                                                     child: Padding(
                                                       padding:
                                                           const EdgeInsetsDirectional
-                                                              .fromSTEB(
-                                                                  35.0,
-                                                                  8.0,
-                                                                  0.0,
-                                                                  8.0),
+                                                              .fromSTEB(35.0,
+                                                              8.0, 0.0, 8.0),
                                                       child:
                                                           FlutterFlowIconButton(
                                                         borderColor:
@@ -606,8 +590,8 @@ class _OsWidgetState extends State<OsWidget> {
                                                         borderRadius: 15.0,
                                                         borderWidth: 1.0,
                                                         buttonSize: 60.0,
-                                                        fillColor:
-                                                            const Color(0xFF39D271),
+                                                        fillColor: const Color(
+                                                            0xFF39D271),
                                                         icon: Icon(
                                                           Icons.cached,
                                                           color: FlutterFlowTheme
@@ -616,16 +600,16 @@ class _OsWidgetState extends State<OsWidget> {
                                                           size: 24.0,
                                                         ),
                                                         onPressed: () async {
-                                                          FFAppState().OS =
+                                                          FFAppState().os =
                                                               widget.parOS!;
-                                                          FFAppState().Projeto =
+                                                          FFAppState().projeto =
                                                               widget
                                                                   .parProjeto!;
                                                           FFAppState()
-                                                                  .Ocorrencia =
+                                                                  .ocorrencia =
                                                               widget
                                                                   .parOcorrencia!;
-                                                          FFAppState().Tipo =
+                                                          FFAppState().tipo =
                                                               widget.parTipo!;
                                                           FFAppState().ossList =
                                                               [];
@@ -696,11 +680,8 @@ class _OsWidgetState extends State<OsWidget> {
                                                     child: Padding(
                                                       padding:
                                                           const EdgeInsetsDirectional
-                                                              .fromSTEB(
-                                                                  5.0,
-                                                                  8.0,
-                                                                  0.0,
-                                                                  8.0),
+                                                              .fromSTEB(5.0,
+                                                              8.0, 0.0, 8.0),
                                                       child:
                                                           FlutterFlowIconButton(
                                                         key: ValueKey(
@@ -790,8 +771,9 @@ class _OsWidgetState extends State<OsWidget> {
                                   crossAxisAlignment: CrossAxisAlignment.start,
                                   children: [
                                     Padding(
-                                      padding: const EdgeInsetsDirectional.fromSTEB(
-                                          0.0, 0.0, 0.0, 5.0),
+                                      padding:
+                                          const EdgeInsetsDirectional.fromSTEB(
+                                              0.0, 0.0, 0.0, 5.0),
                                       child: Text(
                                         'Dados do atendimento',
                                         style: FlutterFlowTheme.of(context)
@@ -826,9 +808,8 @@ class _OsWidgetState extends State<OsWidget> {
                                         mainAxisSize: MainAxisSize.max,
                                         children: [
                                           Padding(
-                                            padding:
-                                                const EdgeInsetsDirectional.fromSTEB(
-                                                    0.0, 0.0, 0.0, 5.0),
+                                            padding: const EdgeInsetsDirectional
+                                                .fromSTEB(0.0, 0.0, 0.0, 5.0),
                                             child: Text(
                                               'Número de Atendimento:',
                                               style: FlutterFlowTheme.of(
@@ -844,9 +825,8 @@ class _OsWidgetState extends State<OsWidget> {
                                             ),
                                           ),
                                           Padding(
-                                            padding:
-                                                const EdgeInsetsDirectional.fromSTEB(
-                                                    5.0, 0.0, 0.0, 5.0),
+                                            padding: const EdgeInsetsDirectional
+                                                .fromSTEB(5.0, 0.0, 0.0, 5.0),
                                             child: Text(
                                               valueOrDefault<String>(
                                                 widget.parNrAtendimento,
@@ -917,8 +897,9 @@ class _OsWidgetState extends State<OsWidget> {
                                             mainAxisSize: MainAxisSize.max,
                                             children: [
                                               Padding(
-                                                padding: const EdgeInsetsDirectional
-                                                    .fromSTEB(
+                                                padding:
+                                                    const EdgeInsetsDirectional
+                                                        .fromSTEB(
                                                         0.0, 0.0, 0.0, 5.0),
                                                 child: Text(
                                                   'Observação:',
@@ -985,8 +966,8 @@ class _OsWidgetState extends State<OsWidget> {
                                         (widget.parStatus ==
                                             'TROCA DE PARQUE - SUSPENSÃO PARA ANÁLISE')))
                                       Padding(
-                                        padding: const EdgeInsetsDirectional.fromSTEB(
-                                            5.0, 0.0, 0.0, 5.0),
+                                        padding: const EdgeInsetsDirectional
+                                            .fromSTEB(5.0, 0.0, 0.0, 5.0),
                                         child: Text(
                                           valueOrDefault<String>(
                                             widget.parObs,
@@ -1021,14 +1002,16 @@ class _OsWidgetState extends State<OsWidget> {
                                         (widget.parStatus !=
                                             'CANC NÃO AUT – SEM AJUSTE CADASTRAL'))
                                       Padding(
-                                        padding: const EdgeInsetsDirectional.fromSTEB(
-                                            0.0, 1.0, 0.0, 0.0),
+                                        padding: const EdgeInsetsDirectional
+                                            .fromSTEB(0.0, 1.0, 0.0, 0.0),
                                         child: Row(
                                           mainAxisSize: MainAxisSize.max,
                                           children: [
                                             Padding(
-                                              padding: const EdgeInsetsDirectional
-                                                  .fromSTEB(0.0, 0.0, 0.0, 5.0),
+                                              padding:
+                                                  const EdgeInsetsDirectional
+                                                      .fromSTEB(
+                                                      0.0, 0.0, 0.0, 5.0),
                                               child: Text(
                                                 'Atendente:',
                                                 style: FlutterFlowTheme.of(
@@ -1045,8 +1028,10 @@ class _OsWidgetState extends State<OsWidget> {
                                               ),
                                             ),
                                             Padding(
-                                              padding: const EdgeInsetsDirectional
-                                                  .fromSTEB(5.0, 0.0, 0.0, 5.0),
+                                              padding:
+                                                  const EdgeInsetsDirectional
+                                                      .fromSTEB(
+                                                      5.0, 0.0, 0.0, 5.0),
                                               child: Text(
                                                 valueOrDefault<String>(
                                                   widget.parAtendente,

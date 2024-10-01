@@ -37,14 +37,14 @@ class _TokenSolicitadoUserNameWidgetState
     // On page load action.
     SchedulerBinding.instance.addPostFrameCallback((_) async {
       if ((currentUserData?.uid != null && currentUserData?.uid != '') ||
-          (FFAppState().PWDAppState != currentUserData?.pwd)) {
+          (FFAppState().pWDAppState != currentUserData?.pwd)) {
         FFAppState().uidAppState = currentUserData!.uid;
-        FFAppState().TelefoneAppState = currentUserData!.phone;
+        FFAppState().telefoneAppState = currentUserData!.phone;
         FFAppState().userNameAppState = currentUserData!.username;
-        FFAppState().UnidadeAppState = currentUserData!.codBase;
-        FFAppState().CPFAppState = currentUserData!.documento;
-        FFAppState().EmailAppState = currentUserData!.email;
-        FFAppState().NomeAppState = currentUserData!.name;
+        FFAppState().unidadeAppState = currentUserData!.codBase;
+        FFAppState().cPFAppState = currentUserData!.documento;
+        FFAppState().emailAppState = currentUserData!.email;
+        FFAppState().nomeAppState = currentUserData!.name;
         safeSetState(() {});
 
         context.pushNamed('Home');
@@ -199,16 +199,18 @@ class _TokenSolicitadoUserNameWidgetState
                                         child: Column(
                                           children: [
                                             Align(
-                                              alignment: const Alignment(0.0, 0),
+                                              alignment:
+                                                  const Alignment(0.0, 0),
                                               child: TabBar(
                                                 isScrollable: true,
-                                                labelColor: const Color(0xFF101213),
+                                                labelColor:
+                                                    const Color(0xFF101213),
                                                 unselectedLabelColor:
                                                     const Color(0xFF57636C),
                                                 labelPadding:
                                                     const EdgeInsetsDirectional
-                                                        .fromSTEB(32.0, 0.0,
-                                                            32.0, 0.0),
+                                                        .fromSTEB(
+                                                        32.0, 0.0, 32.0, 0.0),
                                                 labelStyle:
                                                     FlutterFlowTheme.of(context)
                                                         .titleLarge
@@ -259,10 +261,10 @@ class _TokenSolicitadoUserNameWidgetState
                                                         padding:
                                                             const EdgeInsetsDirectional
                                                                 .fromSTEB(
-                                                                    12.0,
-                                                                    20.0,
-                                                                    12.0,
-                                                                    0.0),
+                                                                12.0,
+                                                                20.0,
+                                                                12.0,
+                                                                0.0),
                                                         child:
                                                             SingleChildScrollView(
                                                           child: Column(
@@ -280,10 +282,10 @@ class _TokenSolicitadoUserNameWidgetState
                                                                 padding:
                                                                     const EdgeInsetsDirectional
                                                                         .fromSTEB(
-                                                                            5.0,
-                                                                            0.0,
-                                                                            5.0,
-                                                                            40.0),
+                                                                        5.0,
+                                                                        0.0,
+                                                                        5.0,
+                                                                        40.0),
                                                                 child: Text(
                                                                   'Escolha como deseja receber o código para alterar senha',
                                                                   textAlign:
@@ -310,12 +312,11 @@ class _TokenSolicitadoUserNameWidgetState
                                                                 padding:
                                                                     const EdgeInsetsDirectional
                                                                         .fromSTEB(
-                                                                            0.0,
-                                                                            0.0,
-                                                                            0.0,
-                                                                            8.0),
-                                                                child:
-                                                                    SizedBox(
+                                                                        0.0,
+                                                                        0.0,
+                                                                        0.0,
+                                                                        8.0),
+                                                                child: SizedBox(
                                                                   width: double
                                                                       .infinity,
                                                                   child:
@@ -421,9 +422,9 @@ class _TokenSolicitadoUserNameWidgetState
                                                                       fillColor:
                                                                           Colors
                                                                               .white,
-                                                                      contentPadding:
-                                                                          const EdgeInsets.all(
-                                                                              24.0),
+                                                                      contentPadding: const EdgeInsets
+                                                                          .all(
+                                                                          24.0),
                                                                       suffixIcon: _model
                                                                               .nomeTxtFieldTextController!
                                                                               .text
@@ -470,10 +471,10 @@ class _TokenSolicitadoUserNameWidgetState
                                                                 padding:
                                                                     const EdgeInsetsDirectional
                                                                         .fromSTEB(
-                                                                            0.0,
-                                                                            20.0,
-                                                                            0.0,
-                                                                            0.0),
+                                                                        0.0,
+                                                                        20.0,
+                                                                        0.0,
+                                                                        0.0),
                                                                 child: Row(
                                                                   mainAxisSize:
                                                                       MainAxisSize
@@ -488,7 +489,8 @@ class _TokenSolicitadoUserNameWidgetState
                                                                               .max,
                                                                       children: [
                                                                         Padding(
-                                                                          padding: const EdgeInsetsDirectional.fromSTEB(
+                                                                          padding: const EdgeInsetsDirectional
+                                                                              .fromSTEB(
                                                                               0.0,
                                                                               20.0,
                                                                               0.0,
@@ -504,23 +506,23 @@ class _TokenSolicitadoUserNameWidgetState
 
                                                                               shouldSetState = true;
                                                                               if ((_model.aPIRecebeTelefoneEmail?.succeeded ?? true)) {
-                                                                                FFAppState().TelefoneAppState = getJsonField(
+                                                                                FFAppState().telefoneAppState = getJsonField(
                                                                                   (_model.aPIRecebeTelefoneEmail?.jsonBody ?? ''),
                                                                                   r'''$.phone''',
                                                                                 ).toString();
-                                                                                FFAppState().EmailAppState = getJsonField(
+                                                                                FFAppState().emailAppState = getJsonField(
                                                                                   (_model.aPIRecebeTelefoneEmail?.jsonBody ?? ''),
                                                                                   r'''$.email''',
                                                                                 ).toString();
                                                                                 FFAppState().userNameAppState = _model.nomeTxtFieldTextController.text;
                                                                                 _model.telemascarado = await actions.maskPhoneNumber(
-                                                                                  FFAppState().TelefoneAppState,
+                                                                                  FFAppState().telefoneAppState,
                                                                                 );
                                                                                 shouldSetState = true;
                                                                                 FFAppState().maskedPhoneNumber = _model.telemascarado!;
                                                                                 safeSetState(() {});
                                                                                 _model.emailmascarado = await actions.maskEmail(
-                                                                                  FFAppState().EmailAppState,
+                                                                                  FFAppState().emailAppState,
                                                                                 );
                                                                                 shouldSetState = true;
                                                                                 FFAppState().maskedEmail = _model.emailmascarado!;
@@ -582,7 +584,8 @@ class _TokenSolicitadoUserNameWidgetState
                                                                           ),
                                                                         ),
                                                                         Padding(
-                                                                          padding: const EdgeInsetsDirectional.fromSTEB(
+                                                                          padding: const EdgeInsetsDirectional
+                                                                              .fromSTEB(
                                                                               0.0,
                                                                               0.0,
                                                                               0.0,

@@ -60,13 +60,14 @@ class _SidebarWidgetState extends State<SidebarWidget> {
             mainAxisAlignment: MainAxisAlignment.start,
             children: [
               Padding(
-                padding: const EdgeInsetsDirectional.fromSTEB(24.0, 0.0, 24.0, 0.0),
+                padding:
+                    const EdgeInsetsDirectional.fromSTEB(24.0, 0.0, 24.0, 0.0),
                 child: Row(
                   mainAxisSize: MainAxisSize.max,
                   children: [
                     Padding(
-                      padding:
-                          const EdgeInsetsDirectional.fromSTEB(5.0, 0.0, 5.0, 0.0),
+                      padding: const EdgeInsetsDirectional.fromSTEB(
+                          5.0, 0.0, 5.0, 0.0),
                       child: Container(
                         width: 12.0,
                         height: 12.0,
@@ -77,8 +78,8 @@ class _SidebarWidgetState extends State<SidebarWidget> {
                       ),
                     ),
                     Padding(
-                      padding:
-                          const EdgeInsetsDirectional.fromSTEB(5.0, 0.0, 5.0, 0.0),
+                      padding: const EdgeInsetsDirectional.fromSTEB(
+                          5.0, 0.0, 5.0, 0.0),
                       child: Container(
                         width: 12.0,
                         height: 12.0,
@@ -89,8 +90,8 @@ class _SidebarWidgetState extends State<SidebarWidget> {
                       ),
                     ),
                     Padding(
-                      padding:
-                          const EdgeInsetsDirectional.fromSTEB(5.0, 0.0, 5.0, 0.0),
+                      padding: const EdgeInsetsDirectional.fromSTEB(
+                          5.0, 0.0, 5.0, 0.0),
                       child: Container(
                         width: 12.0,
                         height: 12.0,
@@ -104,7 +105,8 @@ class _SidebarWidgetState extends State<SidebarWidget> {
                 ),
               ),
               Padding(
-                padding: const EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 5.0, 0.0),
+                padding:
+                    const EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 5.0, 0.0),
                 child: Container(
                   height: 80.0,
                   decoration: BoxDecoration(
@@ -121,8 +123,8 @@ class _SidebarWidgetState extends State<SidebarWidget> {
                     borderRadius: BorderRadius.circular(25.0),
                   ),
                   child: Padding(
-                    padding:
-                        const EdgeInsetsDirectional.fromSTEB(16.0, 24.0, 0.0, 0.0),
+                    padding: const EdgeInsetsDirectional.fromSTEB(
+                        16.0, 24.0, 0.0, 0.0),
                     child: SingleChildScrollView(
                       scrollDirection: Axis.horizontal,
                       child: Row(
@@ -231,6 +233,8 @@ class _SidebarWidgetState extends State<SidebarWidget> {
                   ),
                 ),
               ),
+
+              /*estou ajustando daqui para baixo*/
               Divider(
                 height: 20.0,
                 thickness: 1.0,
@@ -239,13 +243,14 @@ class _SidebarWidgetState extends State<SidebarWidget> {
                 color: FlutterFlowTheme.of(context).primaryText,
               ),
               Padding(
-                padding: const EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 150.0),
+                padding:
+                    const EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 150.0),
                 child: Column(
                   mainAxisSize: MainAxisSize.max,
                   children: [
                     Padding(
-                      padding:
-                          const EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 15.0, 20.0),
+                      padding: const EdgeInsetsDirectional.fromSTEB(
+                          0.0, 0.0, 15.0, 20.0),
                       child: Container(
                         width: double.infinity,
                         height: 48.0,
@@ -266,9 +271,9 @@ class _SidebarWidgetState extends State<SidebarWidget> {
                                   await APIValidaInternetCall.call();
 
                               if ((_model.internetok?.succeeded ?? true)) {
-                                FFAppState().Projeto = '';
-                                FFAppState().Ocorrencia = '';
-                                FFAppState().Tipo = '';
+                                FFAppState().projeto = '';
+                                FFAppState().ocorrencia = '';
+                                FFAppState().tipo = '';
                                 FFAppState().ossList = [];
                                 FFAppState().isFirstDropdownSelected = false;
                                 FFAppState().isSecondDropdownSelected = false;
@@ -276,9 +281,13 @@ class _SidebarWidgetState extends State<SidebarWidget> {
                                 FFAppState().isDropdownProjetoReset = false;
                                 FFAppState().isThirdDropdownSelected = false;
 
-                                context.pushNamed('NovoChamado');
+                                if (mounted) {
+                                  context.pushNamed('NovoChamado');
+                                }
                               } else {
-                                context.goNamed('Home_no_Internet');
+                                if (mounted) {
+                                  context.goNamed('Home_no_Internet');
+                                }
                               }
 
                               safeSetState(() {});
@@ -315,8 +324,8 @@ class _SidebarWidgetState extends State<SidebarWidget> {
                       ),
                     ),
                     Padding(
-                      padding:
-                          const EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 15.0, 20.0),
+                      padding: const EdgeInsetsDirectional.fromSTEB(
+                          0.0, 0.0, 15.0, 20.0),
                       child: Container(
                         width: double.infinity,
                         height: 48.0,
@@ -371,8 +380,8 @@ class _SidebarWidgetState extends State<SidebarWidget> {
                       ),
                     ),
                     Padding(
-                      padding:
-                          const EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 15.0, 20.0),
+                      padding: const EdgeInsetsDirectional.fromSTEB(
+                          0.0, 0.0, 15.0, 20.0),
                       child: Container(
                         width: double.infinity,
                         height: 48.0,
@@ -423,8 +432,8 @@ class _SidebarWidgetState extends State<SidebarWidget> {
                       ),
                     ),
                     Padding(
-                      padding:
-                          const EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 15.0, 20.0),
+                      padding: const EdgeInsetsDirectional.fromSTEB(
+                          0.0, 0.0, 15.0, 20.0),
                       child: Container(
                         width: double.infinity,
                         height: 48.0,
@@ -485,7 +494,8 @@ class _SidebarWidgetState extends State<SidebarWidget> {
                 color: FlutterFlowTheme.of(context).primaryText,
               ),
               Padding(
-                padding: const EdgeInsetsDirectional.fromSTEB(0.0, 20.0, 20.0, 0.0),
+                padding:
+                    const EdgeInsetsDirectional.fromSTEB(0.0, 20.0, 20.0, 0.0),
                 child: FFButtonWidget(
                   onPressed: () async {
                     GoRouter.of(context).prepareAuthEvent();
@@ -502,10 +512,10 @@ class _SidebarWidgetState extends State<SidebarWidget> {
                   options: FFButtonOptions(
                     width: 200.0,
                     height: 40.0,
-                    padding:
-                        const EdgeInsetsDirectional.fromSTEB(24.0, 0.0, 24.0, 0.0),
-                    iconPadding:
-                        const EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
+                    padding: const EdgeInsetsDirectional.fromSTEB(
+                        24.0, 0.0, 24.0, 0.0),
+                    iconPadding: const EdgeInsetsDirectional.fromSTEB(
+                        0.0, 0.0, 0.0, 0.0),
                     color: const Color(0xFFEE6060),
                     textStyle: FlutterFlowTheme.of(context).titleSmall.override(
                           fontFamily: 'Readex Pro',

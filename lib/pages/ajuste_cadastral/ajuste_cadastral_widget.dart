@@ -37,15 +37,15 @@ class _AjusteCadastralWidgetState extends State<AjusteCadastralWidget>
       initialIndex: 0,
     )..addListener(() => safeSetState(() {}));
     _model.telefoneTxtFieldTextController ??=
-        TextEditingController(text: FFAppState().TelefoneAppState);
+        TextEditingController(text: FFAppState().telefoneAppState);
     _model.telefoneTxtFieldFocusNode ??= FocusNode();
 
     _model.nomeTxtFieldTextController ??=
-        TextEditingController(text: FFAppState().NomeAppState);
+        TextEditingController(text: FFAppState().nomeAppState);
     _model.nomeTxtFieldFocusNode ??= FocusNode();
 
     _model.emailTxtfieldTextController ??=
-        TextEditingController(text: FFAppState().EmailAppState);
+        TextEditingController(text: FFAppState().emailAppState);
     _model.emailTxtfieldFocusNode ??= FocusNode();
 
     animationsMap.addAll({
@@ -232,16 +232,18 @@ class _AjusteCadastralWidgetState extends State<AjusteCadastralWidget>
                                         child: Column(
                                           children: [
                                             Align(
-                                              alignment: const Alignment(0.0, 0),
+                                              alignment:
+                                                  const Alignment(0.0, 0),
                                               child: TabBar(
                                                 isScrollable: true,
-                                                labelColor: const Color(0xFF101213),
+                                                labelColor:
+                                                    const Color(0xFF101213),
                                                 unselectedLabelColor:
                                                     const Color(0xFF57636C),
                                                 labelPadding:
                                                     const EdgeInsetsDirectional
-                                                        .fromSTEB(32.0, 0.0,
-                                                            32.0, 0.0),
+                                                        .fromSTEB(
+                                                        32.0, 0.0, 32.0, 0.0),
                                                 labelStyle:
                                                     FlutterFlowTheme.of(context)
                                                         .titleLarge
@@ -286,11 +288,8 @@ class _AjusteCadastralWidgetState extends State<AjusteCadastralWidget>
                                                     child: Padding(
                                                       padding:
                                                           const EdgeInsetsDirectional
-                                                              .fromSTEB(
-                                                                  12.0,
-                                                                  5.0,
-                                                                  12.0,
-                                                                  0.0),
+                                                              .fromSTEB(12.0,
+                                                              5.0, 12.0, 0.0),
                                                       child:
                                                           SingleChildScrollView(
                                                         child: Column(
@@ -307,10 +306,10 @@ class _AjusteCadastralWidgetState extends State<AjusteCadastralWidget>
                                                               padding:
                                                                   const EdgeInsetsDirectional
                                                                       .fromSTEB(
-                                                                          5.0,
-                                                                          0.0,
-                                                                          5.0,
-                                                                          15.0),
+                                                                      5.0,
+                                                                      0.0,
+                                                                      5.0,
+                                                                      15.0),
                                                               child: Text(
                                                                 'Por favor preencha os campos abaixo',
                                                                 textAlign:
@@ -348,10 +347,10 @@ class _AjusteCadastralWidgetState extends State<AjusteCadastralWidget>
                                                                   Padding(
                                                                     padding: const EdgeInsetsDirectional
                                                                         .fromSTEB(
-                                                                            0.0,
-                                                                            0.0,
-                                                                            0.0,
-                                                                            8.0),
+                                                                        0.0,
+                                                                        0.0,
+                                                                        0.0,
+                                                                        8.0),
                                                                     child:
                                                                         SizedBox(
                                                                       width: double
@@ -459,8 +458,9 @@ class _AjusteCadastralWidgetState extends State<AjusteCadastralWidget>
                                                                               true,
                                                                           fillColor:
                                                                               Colors.white,
-                                                                          contentPadding:
-                                                                              const EdgeInsets.all(24.0),
+                                                                          contentPadding: const EdgeInsets
+                                                                              .all(
+                                                                              24.0),
                                                                           suffixIcon: _model.telefoneTxtFieldTextController!.text.isNotEmpty
                                                                               ? InkWell(
                                                                                   onTap: () async {
@@ -499,10 +499,10 @@ class _AjusteCadastralWidgetState extends State<AjusteCadastralWidget>
                                                                   Padding(
                                                                     padding: const EdgeInsetsDirectional
                                                                         .fromSTEB(
-                                                                            0.0,
-                                                                            0.0,
-                                                                            0.0,
-                                                                            8.0),
+                                                                        0.0,
+                                                                        0.0,
+                                                                        0.0,
+                                                                        8.0),
                                                                     child:
                                                                         SizedBox(
                                                                       width: double
@@ -591,8 +591,9 @@ class _AjusteCadastralWidgetState extends State<AjusteCadastralWidget>
                                                                               true,
                                                                           fillColor:
                                                                               Colors.white,
-                                                                          contentPadding:
-                                                                              const EdgeInsets.all(24.0),
+                                                                          contentPadding: const EdgeInsets
+                                                                              .all(
+                                                                              24.0),
                                                                           suffixIcon: _model.nomeTxtFieldTextController!.text.isNotEmpty
                                                                               ? InkWell(
                                                                                   onTap: () async {
@@ -627,10 +628,10 @@ class _AjusteCadastralWidgetState extends State<AjusteCadastralWidget>
                                                                   Padding(
                                                                     padding: const EdgeInsetsDirectional
                                                                         .fromSTEB(
-                                                                            0.0,
-                                                                            0.0,
-                                                                            0.0,
-                                                                            8.0),
+                                                                        0.0,
+                                                                        0.0,
+                                                                        0.0,
+                                                                        8.0),
                                                                     child:
                                                                         SizedBox(
                                                                       width: double
@@ -728,8 +729,9 @@ class _AjusteCadastralWidgetState extends State<AjusteCadastralWidget>
                                                                               true,
                                                                           fillColor:
                                                                               Colors.white,
-                                                                          contentPadding:
-                                                                              const EdgeInsets.all(24.0),
+                                                                          contentPadding: const EdgeInsets
+                                                                              .all(
+                                                                              24.0),
                                                                           suffixIcon: _model.emailTxtfieldTextController!.text.isNotEmpty
                                                                               ? InkWell(
                                                                                   onTap: () async {
@@ -768,10 +770,10 @@ class _AjusteCadastralWidgetState extends State<AjusteCadastralWidget>
                                                               padding:
                                                                   const EdgeInsetsDirectional
                                                                       .fromSTEB(
-                                                                          0.0,
-                                                                          0.0,
-                                                                          0.0,
-                                                                          5.0),
+                                                                      0.0,
+                                                                      0.0,
+                                                                      0.0,
+                                                                      5.0),
                                                               child:
                                                                   FFButtonWidget(
                                                                 onPressed:
@@ -797,17 +799,17 @@ class _AjusteCadastralWidgetState extends State<AjusteCadastralWidget>
                                                                           ?.succeeded ??
                                                                       true)) {
                                                                     FFAppState()
-                                                                            .NomeAppState =
+                                                                            .nomeAppState =
                                                                         _model
                                                                             .nomeTxtFieldTextController
                                                                             .text;
                                                                     FFAppState()
-                                                                            .EmailAppState =
+                                                                            .emailAppState =
                                                                         _model
                                                                             .emailTxtfieldTextController
                                                                             .text;
                                                                     FFAppState()
-                                                                            .TelefoneAppState =
+                                                                            .telefoneAppState =
                                                                         _model
                                                                             .telefoneTxtFieldTextController
                                                                             .text;
@@ -845,14 +847,16 @@ class _AjusteCadastralWidgetState extends State<AjusteCadastralWidget>
                                                                     FFButtonOptions(
                                                                   width: 200.0,
                                                                   height: 44.0,
-                                                                  padding: const EdgeInsetsDirectional
-                                                                      .fromSTEB(
+                                                                  padding:
+                                                                      const EdgeInsetsDirectional
+                                                                          .fromSTEB(
                                                                           24.0,
                                                                           0.0,
                                                                           24.0,
                                                                           0.0),
-                                                                  iconPadding: const EdgeInsetsDirectional
-                                                                      .fromSTEB(
+                                                                  iconPadding:
+                                                                      const EdgeInsetsDirectional
+                                                                          .fromSTEB(
                                                                           0.0,
                                                                           0.0,
                                                                           0.0,
@@ -882,8 +886,9 @@ class _AjusteCadastralWidgetState extends State<AjusteCadastralWidget>
                                                                       BorderRadius
                                                                           .circular(
                                                                               40.0),
-                                                                  hoverColor: const Color(
-                                                                      0xFF39D271),
+                                                                  hoverColor:
+                                                                      const Color(
+                                                                          0xFF39D271),
                                                                 ),
                                                               ),
                                                             ),
@@ -899,8 +904,9 @@ class _AjusteCadastralWidgetState extends State<AjusteCadastralWidget>
                                                                   FFButtonOptions(
                                                                 width: 200.0,
                                                                 height: 44.0,
-                                                                padding: const EdgeInsetsDirectional
-                                                                    .fromSTEB(
+                                                                padding:
+                                                                    const EdgeInsetsDirectional
+                                                                        .fromSTEB(
                                                                         24.0,
                                                                         0.0,
                                                                         24.0,
@@ -908,10 +914,10 @@ class _AjusteCadastralWidgetState extends State<AjusteCadastralWidget>
                                                                 iconPadding:
                                                                     const EdgeInsetsDirectional
                                                                         .fromSTEB(
-                                                                            0.0,
-                                                                            0.0,
-                                                                            0.0,
-                                                                            0.0),
+                                                                        0.0,
+                                                                        0.0,
+                                                                        0.0,
+                                                                        0.0),
                                                                 color: FlutterFlowTheme.of(
                                                                         context)
                                                                     .error,

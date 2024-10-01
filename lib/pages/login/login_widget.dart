@@ -36,14 +36,14 @@ class _LoginWidgetState extends State<LoginWidget>
     // On page load action.
     SchedulerBinding.instance.addPostFrameCallback((_) async {
       if ((currentUserData?.uid != null && currentUserData?.uid != '') ||
-          (FFAppState().PWDAppState != currentUserData?.pwd)) {
+          (FFAppState().pWDAppState != currentUserData?.pwd)) {
         FFAppState().uidAppState = currentUserData!.uid;
-        FFAppState().TelefoneAppState = currentUserData!.phone;
+        FFAppState().telefoneAppState = currentUserData!.phone;
         FFAppState().userNameAppState = currentUserData!.username;
-        FFAppState().UnidadeAppState = currentUserData!.codBase;
-        FFAppState().CPFAppState = currentUserData!.documento;
-        FFAppState().EmailAppState = currentUserData!.email;
-        FFAppState().NomeAppState = currentUserData!.name;
+        FFAppState().unidadeAppState = currentUserData!.codBase;
+        FFAppState().cPFAppState = currentUserData!.documento;
+        FFAppState().emailAppState = currentUserData!.email;
+        FFAppState().nomeAppState = currentUserData!.name;
         await Future.delayed(const Duration(milliseconds: 200));
 
         context.goNamed('Home');
@@ -256,16 +256,18 @@ class _LoginWidgetState extends State<LoginWidget>
                                           child: Column(
                                             children: [
                                               Align(
-                                                alignment: const Alignment(0.0, 0),
+                                                alignment:
+                                                    const Alignment(0.0, 0),
                                                 child: TabBar(
                                                   isScrollable: true,
-                                                  labelColor: const Color(0xFF101213),
+                                                  labelColor:
+                                                      const Color(0xFF101213),
                                                   unselectedLabelColor:
                                                       const Color(0xFF57636C),
                                                   labelPadding:
                                                       const EdgeInsetsDirectional
-                                                          .fromSTEB(32.0, 0.0,
-                                                              32.0, 0.0),
+                                                          .fromSTEB(
+                                                          32.0, 0.0, 32.0, 0.0),
                                                   labelStyle: FlutterFlowTheme
                                                           .of(context)
                                                       .titleLarge
@@ -317,10 +319,10 @@ class _LoginWidgetState extends State<LoginWidget>
                                                           padding:
                                                               const EdgeInsetsDirectional
                                                                   .fromSTEB(
-                                                                      12.0,
-                                                                      55.0,
-                                                                      12.0,
-                                                                      0.0),
+                                                                  12.0,
+                                                                  55.0,
+                                                                  12.0,
+                                                                  0.0),
                                                           child:
                                                               SingleChildScrollView(
                                                             child: Column(
@@ -335,8 +337,9 @@ class _LoginWidgetState extends State<LoginWidget>
                                                                       .center,
                                                               children: [
                                                                 Padding(
-                                                                  padding: const EdgeInsetsDirectional
-                                                                      .fromSTEB(
+                                                                  padding:
+                                                                      const EdgeInsetsDirectional
+                                                                          .fromSTEB(
                                                                           5.0,
                                                                           0.0,
                                                                           5.0,
@@ -364,8 +367,9 @@ class _LoginWidgetState extends State<LoginWidget>
                                                                   ),
                                                                 ),
                                                                 Padding(
-                                                                  padding: const EdgeInsetsDirectional
-                                                                      .fromSTEB(
+                                                                  padding:
+                                                                      const EdgeInsetsDirectional
+                                                                          .fromSTEB(
                                                                           0.0,
                                                                           0.0,
                                                                           0.0,
@@ -470,8 +474,9 @@ class _LoginWidgetState extends State<LoginWidget>
                                                                             true,
                                                                         fillColor:
                                                                             Colors.white,
-                                                                        contentPadding:
-                                                                            const EdgeInsets.all(24.0),
+                                                                        contentPadding: const EdgeInsets
+                                                                            .all(
+                                                                            24.0),
                                                                         suffixIcon: _model.userNameTxtFieldTextController!.text.isNotEmpty
                                                                             ? InkWell(
                                                                                 onTap: () async {
@@ -512,8 +517,9 @@ class _LoginWidgetState extends State<LoginWidget>
                                                                   ),
                                                                 ),
                                                                 Padding(
-                                                                  padding: const EdgeInsetsDirectional
-                                                                      .fromSTEB(
+                                                                  padding:
+                                                                      const EdgeInsetsDirectional
+                                                                          .fromSTEB(
                                                                           0.0,
                                                                           0.0,
                                                                           0.0,
@@ -604,8 +610,9 @@ class _LoginWidgetState extends State<LoginWidget>
                                                                             true,
                                                                         fillColor:
                                                                             Colors.white,
-                                                                        contentPadding:
-                                                                            const EdgeInsets.all(24.0),
+                                                                        contentPadding: const EdgeInsets
+                                                                            .all(
+                                                                            24.0),
                                                                         suffixIcon:
                                                                             InkWell(
                                                                           onTap: () =>
@@ -646,8 +653,9 @@ class _LoginWidgetState extends State<LoginWidget>
                                                                   ),
                                                                 ),
                                                                 Padding(
-                                                                  padding: const EdgeInsetsDirectional
-                                                                      .fromSTEB(
+                                                                  padding:
+                                                                      const EdgeInsetsDirectional
+                                                                          .fromSTEB(
                                                                           0.0,
                                                                           20.0,
                                                                           0.0,
@@ -720,13 +728,13 @@ class _LoginWidgetState extends State<LoginWidget>
                                                                             ).toString(),
                                                                           ),
                                                                         );
-                                                                        FFAppState().NomeAppState =
+                                                                        FFAppState().nomeAppState =
                                                                             getJsonField(
                                                                           (_model.apilogin?.jsonBody ??
                                                                               ''),
                                                                           r'''$.name''',
                                                                         ).toString();
-                                                                        FFAppState().TelefoneAppState =
+                                                                        FFAppState().telefoneAppState =
                                                                             getJsonField(
                                                                           (_model.apilogin?.jsonBody ??
                                                                               ''),
@@ -744,19 +752,19 @@ class _LoginWidgetState extends State<LoginWidget>
                                                                               ''),
                                                                           r'''$.username''',
                                                                         ).toString();
-                                                                        FFAppState().CPFAppState =
+                                                                        FFAppState().cPFAppState =
                                                                             getJsonField(
                                                                           (_model.apilogin?.jsonBody ??
                                                                               ''),
                                                                           r'''$.documento''',
                                                                         ).toString();
-                                                                        FFAppState().UnidadeAppState =
+                                                                        FFAppState().unidadeAppState =
                                                                             getJsonField(
                                                                           (_model.apilogin?.jsonBody ??
                                                                               ''),
                                                                           r'''$.cod_base''',
                                                                         ).toString();
-                                                                        FFAppState().EmailAppState =
+                                                                        FFAppState().emailAppState =
                                                                             getJsonField(
                                                                           (_model.apilogin?.jsonBody ??
                                                                               ''),
@@ -808,12 +816,14 @@ class _LoginWidgetState extends State<LoginWidget>
                                                                           200.0,
                                                                       height:
                                                                           44.0,
-                                                                      padding: const EdgeInsetsDirectional.fromSTEB(
+                                                                      padding: const EdgeInsetsDirectional
+                                                                          .fromSTEB(
                                                                           24.0,
                                                                           0.0,
                                                                           24.0,
                                                                           0.0),
-                                                                      iconPadding: const EdgeInsetsDirectional.fromSTEB(
+                                                                      iconPadding: const EdgeInsetsDirectional
+                                                                          .fromSTEB(
                                                                           0.0,
                                                                           0.0,
                                                                           0.0,
@@ -858,10 +868,10 @@ class _LoginWidgetState extends State<LoginWidget>
                                                                       Padding(
                                                                     padding: const EdgeInsetsDirectional
                                                                         .fromSTEB(
-                                                                            0.0,
-                                                                            0.0,
-                                                                            0.0,
-                                                                            20.0),
+                                                                        0.0,
+                                                                        0.0,
+                                                                        0.0,
+                                                                        20.0),
                                                                     child:
                                                                         FFButtonWidget(
                                                                       onPressed:
@@ -877,12 +887,14 @@ class _LoginWidgetState extends State<LoginWidget>
                                                                             200.0,
                                                                         height:
                                                                             44.0,
-                                                                        padding: const EdgeInsetsDirectional.fromSTEB(
+                                                                        padding: const EdgeInsetsDirectional
+                                                                            .fromSTEB(
                                                                             32.0,
                                                                             0.0,
                                                                             32.0,
                                                                             0.0),
-                                                                        iconPadding: const EdgeInsetsDirectional.fromSTEB(
+                                                                        iconPadding: const EdgeInsetsDirectional
+                                                                            .fromSTEB(
                                                                             0.0,
                                                                             0.0,
                                                                             0.0,
@@ -935,12 +947,14 @@ class _LoginWidgetState extends State<LoginWidget>
                                                                           200.0,
                                                                       height:
                                                                           44.0,
-                                                                      padding: const EdgeInsetsDirectional.fromSTEB(
+                                                                      padding: const EdgeInsetsDirectional
+                                                                          .fromSTEB(
                                                                           32.0,
                                                                           0.0,
                                                                           32.0,
                                                                           0.0),
-                                                                      iconPadding: const EdgeInsetsDirectional.fromSTEB(
+                                                                      iconPadding: const EdgeInsetsDirectional
+                                                                          .fromSTEB(
                                                                           0.0,
                                                                           0.0,
                                                                           0.0,

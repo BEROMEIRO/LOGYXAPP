@@ -35,7 +35,7 @@ class _MeuCadastroWidgetState extends State<MeuCadastroWidget>
       initialIndex: 0,
     )..addListener(() => safeSetState(() {}));
     _model.telefoneTxtFieldTextController ??=
-        TextEditingController(text: FFAppState().TelefoneAppState);
+        TextEditingController(text: FFAppState().telefoneAppState);
     _model.telefoneTxtFieldFocusNode ??= FocusNode();
 
     _model.userNameTxtFieldTextController ??=
@@ -43,19 +43,19 @@ class _MeuCadastroWidgetState extends State<MeuCadastroWidget>
     _model.userNameTxtFieldFocusNode ??= FocusNode();
 
     _model.nomeTxtFieldTextController ??=
-        TextEditingController(text: FFAppState().NomeAppState);
+        TextEditingController(text: FFAppState().nomeAppState);
     _model.nomeTxtFieldFocusNode ??= FocusNode();
 
     _model.emailTxtfieldTextController ??=
-        TextEditingController(text: FFAppState().EmailAppState);
+        TextEditingController(text: FFAppState().emailAppState);
     _model.emailTxtfieldFocusNode ??= FocusNode();
 
     _model.cPFTxtFieldTextController ??=
-        TextEditingController(text: FFAppState().CPFAppState);
+        TextEditingController(text: FFAppState().cPFAppState);
     _model.cPFTxtFieldFocusNode ??= FocusNode();
 
     _model.unidadeTxtFieldTextController ??=
-        TextEditingController(text: FFAppState().UnidadeAppState);
+        TextEditingController(text: FFAppState().unidadeAppState);
     _model.unidadeTxtFieldFocusNode ??= FocusNode();
 
     animationsMap.addAll({
@@ -198,16 +198,18 @@ class _MeuCadastroWidgetState extends State<MeuCadastroWidget>
                                           child: Column(
                                             children: [
                                               Align(
-                                                alignment: const Alignment(0.0, 0),
+                                                alignment:
+                                                    const Alignment(0.0, 0),
                                                 child: TabBar(
                                                   isScrollable: true,
-                                                  labelColor: const Color(0xFF101213),
+                                                  labelColor:
+                                                      const Color(0xFF101213),
                                                   unselectedLabelColor:
                                                       const Color(0xFF57636C),
                                                   labelPadding:
                                                       const EdgeInsetsDirectional
-                                                          .fromSTEB(32.0, 0.0,
-                                                              32.0, 0.0),
+                                                          .fromSTEB(
+                                                          32.0, 0.0, 32.0, 0.0),
                                                   labelStyle: FlutterFlowTheme
                                                           .of(context)
                                                       .titleLarge
@@ -253,11 +255,8 @@ class _MeuCadastroWidgetState extends State<MeuCadastroWidget>
                                                       child: Padding(
                                                         padding:
                                                             const EdgeInsetsDirectional
-                                                                .fromSTEB(
-                                                                    12.0,
-                                                                    5.0,
-                                                                    12.0,
-                                                                    0.0),
+                                                                .fromSTEB(12.0,
+                                                                5.0, 12.0, 0.0),
                                                         child:
                                                             SingleChildScrollView(
                                                           child: Column(
@@ -275,10 +274,10 @@ class _MeuCadastroWidgetState extends State<MeuCadastroWidget>
                                                                 padding:
                                                                     const EdgeInsetsDirectional
                                                                         .fromSTEB(
-                                                                            5.0,
-                                                                            0.0,
-                                                                            5.0,
-                                                                            15.0),
+                                                                        5.0,
+                                                                        0.0,
+                                                                        5.0,
+                                                                        15.0),
                                                                 child: Text(
                                                                   'Por favor preencha os campos abaixo',
                                                                   textAlign:
@@ -305,12 +304,11 @@ class _MeuCadastroWidgetState extends State<MeuCadastroWidget>
                                                                 padding:
                                                                     const EdgeInsetsDirectional
                                                                         .fromSTEB(
-                                                                            0.0,
-                                                                            0.0,
-                                                                            0.0,
-                                                                            8.0),
-                                                                child:
-                                                                    SizedBox(
+                                                                        0.0,
+                                                                        0.0,
+                                                                        0.0,
+                                                                        8.0),
+                                                                child: SizedBox(
                                                                   width: double
                                                                       .infinity,
                                                                   child:
@@ -432,9 +430,9 @@ class _MeuCadastroWidgetState extends State<MeuCadastroWidget>
                                                                       fillColor:
                                                                           Colors
                                                                               .white,
-                                                                      contentPadding:
-                                                                          const EdgeInsets.all(
-                                                                              24.0),
+                                                                      contentPadding: const EdgeInsets
+                                                                          .all(
+                                                                          24.0),
                                                                     ),
                                                                     style: FlutterFlowTheme.of(
                                                                             context)
@@ -469,12 +467,11 @@ class _MeuCadastroWidgetState extends State<MeuCadastroWidget>
                                                                 padding:
                                                                     const EdgeInsetsDirectional
                                                                         .fromSTEB(
-                                                                            0.0,
-                                                                            0.0,
-                                                                            0.0,
-                                                                            8.0),
-                                                                child:
-                                                                    SizedBox(
+                                                                        0.0,
+                                                                        0.0,
+                                                                        0.0,
+                                                                        8.0),
+                                                                child: SizedBox(
                                                                   width: double
                                                                       .infinity,
                                                                   child:
@@ -572,9 +569,9 @@ class _MeuCadastroWidgetState extends State<MeuCadastroWidget>
                                                                       fillColor:
                                                                           Colors
                                                                               .white,
-                                                                      contentPadding:
-                                                                          const EdgeInsets.all(
-                                                                              24.0),
+                                                                      contentPadding: const EdgeInsets
+                                                                          .all(
+                                                                          24.0),
                                                                     ),
                                                                     style: FlutterFlowTheme.of(
                                                                             context)
@@ -605,12 +602,11 @@ class _MeuCadastroWidgetState extends State<MeuCadastroWidget>
                                                                 padding:
                                                                     const EdgeInsetsDirectional
                                                                         .fromSTEB(
-                                                                            0.0,
-                                                                            0.0,
-                                                                            0.0,
-                                                                            8.0),
-                                                                child:
-                                                                    SizedBox(
+                                                                        0.0,
+                                                                        0.0,
+                                                                        0.0,
+                                                                        8.0),
+                                                                child: SizedBox(
                                                                   width: double
                                                                       .infinity,
                                                                   child:
@@ -708,9 +704,9 @@ class _MeuCadastroWidgetState extends State<MeuCadastroWidget>
                                                                       fillColor:
                                                                           Colors
                                                                               .white,
-                                                                      contentPadding:
-                                                                          const EdgeInsets.all(
-                                                                              24.0),
+                                                                      contentPadding: const EdgeInsets
+                                                                          .all(
+                                                                          24.0),
                                                                     ),
                                                                     style: FlutterFlowTheme.of(
                                                                             context)
@@ -741,12 +737,11 @@ class _MeuCadastroWidgetState extends State<MeuCadastroWidget>
                                                                 padding:
                                                                     const EdgeInsetsDirectional
                                                                         .fromSTEB(
-                                                                            0.0,
-                                                                            0.0,
-                                                                            0.0,
-                                                                            8.0),
-                                                                child:
-                                                                    SizedBox(
+                                                                        0.0,
+                                                                        0.0,
+                                                                        0.0,
+                                                                        8.0),
+                                                                child: SizedBox(
                                                                   width: double
                                                                       .infinity,
                                                                   child:
@@ -859,9 +854,9 @@ class _MeuCadastroWidgetState extends State<MeuCadastroWidget>
                                                                       fillColor:
                                                                           Colors
                                                                               .white,
-                                                                      contentPadding:
-                                                                          const EdgeInsets.all(
-                                                                              24.0),
+                                                                      contentPadding: const EdgeInsets
+                                                                          .all(
+                                                                          24.0),
                                                                     ),
                                                                     style: FlutterFlowTheme.of(
                                                                             context)
@@ -892,12 +887,11 @@ class _MeuCadastroWidgetState extends State<MeuCadastroWidget>
                                                                 padding:
                                                                     const EdgeInsetsDirectional
                                                                         .fromSTEB(
-                                                                            0.0,
-                                                                            0.0,
-                                                                            0.0,
-                                                                            8.0),
-                                                                child:
-                                                                    SizedBox(
+                                                                        0.0,
+                                                                        0.0,
+                                                                        0.0,
+                                                                        8.0),
+                                                                child: SizedBox(
                                                                   width: double
                                                                       .infinity,
                                                                   child:
@@ -995,9 +989,9 @@ class _MeuCadastroWidgetState extends State<MeuCadastroWidget>
                                                                       fillColor:
                                                                           Colors
                                                                               .white,
-                                                                      contentPadding:
-                                                                          const EdgeInsets.all(
-                                                                              24.0),
+                                                                      contentPadding: const EdgeInsets
+                                                                          .all(
+                                                                          24.0),
                                                                     ),
                                                                     style: FlutterFlowTheme.of(
                                                                             context)
@@ -1029,12 +1023,11 @@ class _MeuCadastroWidgetState extends State<MeuCadastroWidget>
                                                                 padding:
                                                                     const EdgeInsetsDirectional
                                                                         .fromSTEB(
-                                                                            0.0,
-                                                                            0.0,
-                                                                            0.0,
-                                                                            8.0),
-                                                                child:
-                                                                    SizedBox(
+                                                                        0.0,
+                                                                        0.0,
+                                                                        0.0,
+                                                                        8.0),
+                                                                child: SizedBox(
                                                                   width: double
                                                                       .infinity,
                                                                   child:
@@ -1132,9 +1125,9 @@ class _MeuCadastroWidgetState extends State<MeuCadastroWidget>
                                                                       fillColor:
                                                                           Colors
                                                                               .white,
-                                                                      contentPadding:
-                                                                          const EdgeInsets.all(
-                                                                              24.0),
+                                                                      contentPadding: const EdgeInsets
+                                                                          .all(
+                                                                          24.0),
                                                                     ),
                                                                     style: FlutterFlowTheme.of(
                                                                             context)
@@ -1162,10 +1155,10 @@ class _MeuCadastroWidgetState extends State<MeuCadastroWidget>
                                                                 padding:
                                                                     const EdgeInsetsDirectional
                                                                         .fromSTEB(
-                                                                            0.0,
-                                                                            0.0,
-                                                                            0.0,
-                                                                            5.0),
+                                                                        0.0,
+                                                                        0.0,
+                                                                        0.0,
+                                                                        5.0),
                                                                 child:
                                                                     FFButtonWidget(
                                                                   onPressed:
@@ -1183,12 +1176,13 @@ class _MeuCadastroWidgetState extends State<MeuCadastroWidget>
                                                                         44.0,
                                                                     padding: const EdgeInsetsDirectional
                                                                         .fromSTEB(
-                                                                            24.0,
-                                                                            0.0,
-                                                                            24.0,
-                                                                            0.0),
+                                                                        24.0,
+                                                                        0.0,
+                                                                        24.0,
+                                                                        0.0),
                                                                     iconPadding:
-                                                                        const EdgeInsetsDirectional.fromSTEB(
+                                                                        const EdgeInsetsDirectional
+                                                                            .fromSTEB(
                                                                             0.0,
                                                                             0.0,
                                                                             0.0,
@@ -1235,14 +1229,16 @@ class _MeuCadastroWidgetState extends State<MeuCadastroWidget>
                                                                     FFButtonOptions(
                                                                   width: 200.0,
                                                                   height: 44.0,
-                                                                  padding: const EdgeInsetsDirectional
-                                                                      .fromSTEB(
+                                                                  padding:
+                                                                      const EdgeInsetsDirectional
+                                                                          .fromSTEB(
                                                                           24.0,
                                                                           0.0,
                                                                           24.0,
                                                                           0.0),
-                                                                  iconPadding: const EdgeInsetsDirectional
-                                                                      .fromSTEB(
+                                                                  iconPadding:
+                                                                      const EdgeInsetsDirectional
+                                                                          .fromSTEB(
                                                                           0.0,
                                                                           0.0,
                                                                           0.0,

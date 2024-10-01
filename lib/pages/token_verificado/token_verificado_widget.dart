@@ -40,14 +40,14 @@ class _TokenVerificadoWidgetState extends State<TokenVerificadoWidget>
     // On page load action.
     SchedulerBinding.instance.addPostFrameCallback((_) async {
       if ((currentUserData?.uid != null && currentUserData?.uid != '') ||
-          (FFAppState().PWDAppState != currentUserData?.pwd)) {
+          (FFAppState().pWDAppState != currentUserData?.pwd)) {
         FFAppState().uidAppState = currentUserData!.uid;
-        FFAppState().TelefoneAppState = currentUserData!.phone;
+        FFAppState().telefoneAppState = currentUserData!.phone;
         FFAppState().userNameAppState = currentUserData!.username;
-        FFAppState().UnidadeAppState = currentUserData!.codBase;
-        FFAppState().CPFAppState = currentUserData!.documento;
-        FFAppState().EmailAppState = currentUserData!.email;
-        FFAppState().NomeAppState = currentUserData!.name;
+        FFAppState().unidadeAppState = currentUserData!.codBase;
+        FFAppState().cPFAppState = currentUserData!.documento;
+        FFAppState().emailAppState = currentUserData!.email;
+        FFAppState().nomeAppState = currentUserData!.name;
         safeSetState(() {});
 
         context.pushNamed('Home');
@@ -208,16 +208,18 @@ class _TokenVerificadoWidgetState extends State<TokenVerificadoWidget>
                                           child: Column(
                                             children: [
                                               Align(
-                                                alignment: const Alignment(0.0, 0),
+                                                alignment:
+                                                    const Alignment(0.0, 0),
                                                 child: TabBar(
                                                   isScrollable: true,
-                                                  labelColor: const Color(0xFF101213),
+                                                  labelColor:
+                                                      const Color(0xFF101213),
                                                   unselectedLabelColor:
                                                       const Color(0xFF57636C),
                                                   labelPadding:
                                                       const EdgeInsetsDirectional
-                                                          .fromSTEB(32.0, 0.0,
-                                                              32.0, 0.0),
+                                                          .fromSTEB(
+                                                          32.0, 0.0, 32.0, 0.0),
                                                   labelStyle: FlutterFlowTheme
                                                           .of(context)
                                                       .titleLarge
@@ -264,10 +266,10 @@ class _TokenVerificadoWidgetState extends State<TokenVerificadoWidget>
                                                         padding:
                                                             const EdgeInsetsDirectional
                                                                 .fromSTEB(
-                                                                    12.0,
-                                                                    55.0,
-                                                                    12.0,
-                                                                    0.0),
+                                                                12.0,
+                                                                55.0,
+                                                                12.0,
+                                                                0.0),
                                                         child:
                                                             SingleChildScrollView(
                                                           child: Column(
@@ -285,10 +287,10 @@ class _TokenVerificadoWidgetState extends State<TokenVerificadoWidget>
                                                                 padding:
                                                                     const EdgeInsetsDirectional
                                                                         .fromSTEB(
-                                                                            5.0,
-                                                                            0.0,
-                                                                            5.0,
-                                                                            8.0),
+                                                                        5.0,
+                                                                        0.0,
+                                                                        5.0,
+                                                                        8.0),
                                                                 child: Text(
                                                                   'Insira o código enviado',
                                                                   textAlign:
@@ -315,12 +317,11 @@ class _TokenVerificadoWidgetState extends State<TokenVerificadoWidget>
                                                                 padding:
                                                                     const EdgeInsetsDirectional
                                                                         .fromSTEB(
-                                                                            0.0,
-                                                                            0.0,
-                                                                            0.0,
-                                                                            8.0),
-                                                                child:
-                                                                    SizedBox(
+                                                                        0.0,
+                                                                        0.0,
+                                                                        0.0,
+                                                                        8.0),
+                                                                child: SizedBox(
                                                                   width: double
                                                                       .infinity,
                                                                   child:
@@ -428,9 +429,9 @@ class _TokenVerificadoWidgetState extends State<TokenVerificadoWidget>
                                                                       fillColor:
                                                                           Colors
                                                                               .white,
-                                                                      contentPadding:
-                                                                          const EdgeInsets.all(
-                                                                              24.0),
+                                                                      contentPadding: const EdgeInsets
+                                                                          .all(
+                                                                          24.0),
                                                                       suffixIcon: _model
                                                                               .nomeTxtFieldTextController!
                                                                               .text
@@ -477,12 +478,11 @@ class _TokenVerificadoWidgetState extends State<TokenVerificadoWidget>
                                                                 padding:
                                                                     const EdgeInsetsDirectional
                                                                         .fromSTEB(
-                                                                            0.0,
-                                                                            0.0,
-                                                                            0.0,
-                                                                            8.0),
-                                                                child:
-                                                                    SizedBox(
+                                                                        0.0,
+                                                                        0.0,
+                                                                        0.0,
+                                                                        8.0),
+                                                                child: SizedBox(
                                                                   width: double
                                                                       .infinity,
                                                                   child:
@@ -573,9 +573,9 @@ class _TokenVerificadoWidgetState extends State<TokenVerificadoWidget>
                                                                       fillColor:
                                                                           Colors
                                                                               .white,
-                                                                      contentPadding:
-                                                                          const EdgeInsets.all(
-                                                                              24.0),
+                                                                      contentPadding: const EdgeInsets
+                                                                          .all(
+                                                                          24.0),
                                                                       suffixIcon:
                                                                           InkWell(
                                                                         onTap: () =>
@@ -616,8 +616,9 @@ class _TokenVerificadoWidgetState extends State<TokenVerificadoWidget>
                                                                 ),
                                                               ),
                                                               Padding(
-                                                                padding: const EdgeInsetsDirectional
-                                                                    .fromSTEB(
+                                                                padding:
+                                                                    const EdgeInsetsDirectional
+                                                                        .fromSTEB(
                                                                         0.0,
                                                                         20.0,
                                                                         0.0,
@@ -686,12 +687,13 @@ class _TokenVerificadoWidgetState extends State<TokenVerificadoWidget>
                                                                         44.0,
                                                                     padding: const EdgeInsetsDirectional
                                                                         .fromSTEB(
-                                                                            24.0,
-                                                                            0.0,
-                                                                            24.0,
-                                                                            0.0),
+                                                                        24.0,
+                                                                        0.0,
+                                                                        24.0,
+                                                                        0.0),
                                                                     iconPadding:
-                                                                        const EdgeInsetsDirectional.fromSTEB(
+                                                                        const EdgeInsetsDirectional
+                                                                            .fromSTEB(
                                                                             0.0,
                                                                             0.0,
                                                                             0.0,

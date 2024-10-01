@@ -72,8 +72,7 @@ class _ReaberturaWidgetState extends State<ReaberturaWidget> {
 
     return GestureDetector(
       onTap: () => FocusScope.of(context).unfocus(),
-      child: WillPopScope(
-        onWillPop: () async => false,
+      child: PopScope(
         child: Scaffold(
           key: scaffoldKey,
           backgroundColor: FlutterFlowTheme.of(context).primaryBackground,
@@ -91,9 +90,9 @@ class _ReaberturaWidgetState extends State<ReaberturaWidget> {
                 size: 30.0,
               ),
               onPressed: () async {
-                FFAppState().Projeto = '';
-                FFAppState().Ocorrencia = '';
-                FFAppState().Tipo = '';
+                FFAppState().projeto = '';
+                FFAppState().ocorrencia = '';
+                FFAppState().tipo = '';
                 FFAppState().ossList = [];
                 FFAppState().isDropdownVisible = false;
                 FFAppState().isDropdownProjetoReset = false;
@@ -143,40 +142,45 @@ class _ReaberturaWidgetState extends State<ReaberturaWidget> {
                         );
                       },
                     );
-                    if (shouldSetState) safeSetState(() {});
-                    return;
                   }
                   _model.aPIAbertura = await APIAberturaCall.call(
-                    telefoneTecnico: FFAppState().TelefoneAppState,
+                    telefoneTecnico: FFAppState().telefoneAppState,
                     problemaApresentado:
                         _model.textFieldDescricaoTextController.text,
                     ocorrencia: _model.dropDOcorrenciaValue,
                     projeto: _model.dropDProjetoValue,
                     tipoAtendimento: _model.dropDTipoValue,
-                    tecnico: FFAppState().NomeAppState,
+                    tecnico: FFAppState().nomeAppState,
                     uid: FFAppState().uidAppState,
                     latitude: FFAppState().currentLat.toString(),
                     longitude: FFAppState().currentLng.toString(),
                     imageurl: FFAppState().urlphoto,
-                    unidade: FFAppState().UnidadeAppState,
+                    unidade: FFAppState().unidadeAppState,
                     ossList: FFAppState().ossList,
                   );
 
-                  shouldSetState = true;
+                  setState(() {
+                    shouldSetState = true;
+                  });
+
                   if ((_model.aPIAbertura?.succeeded ?? true)) {
                     FFAppState().urlphoto = getJsonField(
                       (_model.apiimagereaberturaok?.jsonBody ?? ''),
                       r'''$.url''',
                     ).toString();
 
+                    if (!mounted) return;
                     context.pushNamed('Home');
                   } else {
+                    if (!mounted) return;
+
                     await showDialog(
                       context: context,
                       builder: (alertDialogContext) {
                         return AlertDialog(
                           title: const Text('Faltou informações!'),
-                          content: const Text('Verifique as informações solicitadas'),
+                          content: const Text(
+                              'Verifique as informações solicitadas'),
                           actions: [
                             TextButton(
                               onPressed: () =>
@@ -194,7 +198,8 @@ class _ReaberturaWidgetState extends State<ReaberturaWidget> {
                 text: 'Salvar',
                 options: FFButtonOptions(
                   height: 40.0,
-                  padding: const EdgeInsetsDirectional.fromSTEB(24.0, 0.0, 24.0, 0.0),
+                  padding: const EdgeInsetsDirectional.fromSTEB(
+                      24.0, 0.0, 24.0, 0.0),
                   iconPadding:
                       const EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
                   color: const Color(0xFF3976EF),
@@ -254,8 +259,8 @@ class _ReaberturaWidgetState extends State<ReaberturaWidget> {
                                   children: [
                                     Expanded(
                                       child: Padding(
-                                        padding: const EdgeInsetsDirectional.fromSTEB(
-                                            8.0, 0.0, 8.0, 0.0),
+                                        padding: const EdgeInsetsDirectional
+                                            .fromSTEB(8.0, 0.0, 8.0, 0.0),
                                         child: TextFormField(
                                           controller: _model
                                               .osControllerReaberturaTxtFieldTextController,
@@ -359,12 +364,11 @@ class _ReaberturaWidgetState extends State<ReaberturaWidget> {
                                         text: 'Add na lista',
                                         options: FFButtonOptions(
                                           height: 40.0,
-                                          padding:
-                                              const EdgeInsetsDirectional.fromSTEB(
-                                                  24.0, 0.0, 24.0, 0.0),
+                                          padding: const EdgeInsetsDirectional
+                                              .fromSTEB(24.0, 0.0, 24.0, 0.0),
                                           iconPadding:
-                                              const EdgeInsetsDirectional.fromSTEB(
-                                                  0.0, 0.0, 0.0, 0.0),
+                                              const EdgeInsetsDirectional
+                                                  .fromSTEB(0.0, 0.0, 0.0, 0.0),
                                           color: const Color(0xFFEFA139),
                                           textStyle:
                                               FlutterFlowTheme.of(context)
@@ -465,7 +469,7 @@ class _ReaberturaWidgetState extends State<ReaberturaWidget> {
                                             FormFieldController<String>(
                                           _model.dropDProjetoValue ??= () {
                                             if (widget.project == 'TESTE') {
-                                              return FFAppState().Projeto;
+                                              return FFAppState().projeto;
                                             } else if ((getJsonField(
                                                       dropDProjetoAPIProjetoResponse
                                                           .jsonBody,
@@ -527,7 +531,7 @@ class _ReaberturaWidgetState extends State<ReaberturaWidget> {
                                           if ((_model
                                                   .apiProjetoResp?.succeeded ??
                                               true)) {
-                                            FFAppState().Projeto =
+                                            FFAppState().projeto =
                                                 _model.dropDProjetoValue!;
                                             await Future.delayed(const Duration(
                                                 milliseconds: 20));
@@ -565,8 +569,8 @@ class _ReaberturaWidgetState extends State<ReaberturaWidget> {
                                                 .alternate,
                                         borderWidth: 2.0,
                                         borderRadius: 8.0,
-                                        margin: const EdgeInsetsDirectional.fromSTEB(
-                                            16.0, 4.0, 16.0, 4.0),
+                                        margin: const EdgeInsetsDirectional
+                                            .fromSTEB(16.0, 4.0, 16.0, 4.0),
                                         hidesUnderline: true,
                                         isOverButton: true,
                                         isSearchable: false,
@@ -582,7 +586,7 @@ class _ReaberturaWidgetState extends State<ReaberturaWidget> {
                                     future: APIOcorrenciaCall.call(
                                       name: () {
                                         if (widget.project == 'TESTE') {
-                                          return FFAppState().Projeto;
+                                          return FFAppState().projeto;
                                         } else if ((getJsonField(
                                                   (_model.apiProjetoResp
                                                           ?.jsonBody ??
@@ -597,7 +601,7 @@ class _ReaberturaWidgetState extends State<ReaberturaWidget> {
                                                   r'''$[:].projeto''',
                                                 ) ==
                                                 null)) {
-                                          return FFAppState().Projeto;
+                                          return FFAppState().projeto;
                                         } else {
                                           return _model.dropDProjetoValue;
                                         }
@@ -629,7 +633,7 @@ class _ReaberturaWidgetState extends State<ReaberturaWidget> {
                                             FormFieldController<String>(
                                           _model.dropDOcorrenciaValue ??= () {
                                             if (widget.project == 'TESTE') {
-                                              return FFAppState().Ocorrencia;
+                                              return FFAppState().ocorrencia;
                                             } else if ((getJsonField(
                                                       dropDOcorrenciaAPIOcorrenciaResponse
                                                           .jsonBody,
@@ -642,7 +646,7 @@ class _ReaberturaWidgetState extends State<ReaberturaWidget> {
                                                       r'''$[:].motivo''',
                                                     ) ==
                                                     null)) {
-                                              return FFAppState().Ocorrencia;
+                                              return FFAppState().ocorrencia;
                                             } else {
                                               return widget.oco;
                                             }
@@ -722,8 +726,8 @@ class _ReaberturaWidgetState extends State<ReaberturaWidget> {
                                                 .alternate,
                                         borderWidth: 2.0,
                                         borderRadius: 8.0,
-                                        margin: const EdgeInsetsDirectional.fromSTEB(
-                                            16.0, 4.0, 16.0, 4.0),
+                                        margin: const EdgeInsetsDirectional
+                                            .fromSTEB(16.0, 4.0, 16.0, 4.0),
                                         hidesUnderline: true,
                                         isOverButton: true,
                                         isSearchable: false,
@@ -739,7 +743,7 @@ class _ReaberturaWidgetState extends State<ReaberturaWidget> {
                                     future: APITiposPedidosCall.call(
                                       projeto: () {
                                         if (widget.project == 'TESTE') {
-                                          return FFAppState().Projeto;
+                                          return FFAppState().projeto;
                                         } else if ((getJsonField(
                                                   (_model.apiProjetoResp
                                                           ?.jsonBody ??
@@ -790,7 +794,7 @@ class _ReaberturaWidgetState extends State<ReaberturaWidget> {
                                                 FormFieldController<String>(
                                           _model.dropDTipoValue ??= () {
                                             if (widget.project == 'TESTE') {
-                                              return FFAppState().Tipo;
+                                              return FFAppState().tipo;
                                             } else if ((getJsonField(
                                                       (_model.apiTipoResp
                                                               ?.jsonBody ??
@@ -805,7 +809,7 @@ class _ReaberturaWidgetState extends State<ReaberturaWidget> {
                                                       r'''$[:].Tipo_Atendimento''',
                                                     ) ==
                                                     null)) {
-                                              return FFAppState().Tipo;
+                                              return FFAppState().tipo;
                                             } else {
                                               return widget.type;
                                             }
@@ -845,7 +849,7 @@ class _ReaberturaWidgetState extends State<ReaberturaWidget> {
                                           var shouldSetState = false;
                                           _model.apiTipoResp =
                                               await APITiposPedidosCall.call(
-                                            projeto: FFAppState().Projeto,
+                                            projeto: FFAppState().projeto,
                                           );
 
                                           shouldSetState = true;
@@ -887,8 +891,8 @@ class _ReaberturaWidgetState extends State<ReaberturaWidget> {
                                                 .alternate,
                                         borderWidth: 2.0,
                                         borderRadius: 8.0,
-                                        margin: const EdgeInsetsDirectional.fromSTEB(
-                                            16.0, 4.0, 16.0, 4.0),
+                                        margin: const EdgeInsetsDirectional
+                                            .fromSTEB(16.0, 4.0, 16.0, 4.0),
                                         hidesUnderline: true,
                                         isOverButton: true,
                                         isSearchable: false,
@@ -908,9 +912,8 @@ class _ReaberturaWidgetState extends State<ReaberturaWidget> {
                                     if (FFAppState().isDropdownVisible)
                                       Expanded(
                                         child: Padding(
-                                          padding:
-                                              const EdgeInsetsDirectional.fromSTEB(
-                                                  8.0, 0.0, 8.0, 0.0),
+                                          padding: const EdgeInsetsDirectional
+                                              .fromSTEB(8.0, 0.0, 8.0, 0.0),
                                           child: TextFormField(
                                             controller: _model
                                                 .textFieldDescricaoTextController,
@@ -1035,8 +1038,8 @@ class _ReaberturaWidgetState extends State<ReaberturaWidget> {
                                           showLoadingIndicator: true,
                                           onPressed:
                                               (_model.textFieldDescricaoTextController
-                                                              .text ==
-                                                          '')
+                                                          .text ==
+                                                      '')
                                                   ? null
                                                   : () async {
                                                       var shouldSetState =
@@ -1141,8 +1144,9 @@ class _ReaberturaWidgetState extends State<ReaberturaWidget> {
                                                                   onPressed: () =>
                                                                       Navigator.pop(
                                                                           alertDialogContext),
-                                                                  child: const Text(
-                                                                      'Ok'),
+                                                                  child:
+                                                                      const Text(
+                                                                          'Ok'),
                                                                 ),
                                                               ],
                                                             );

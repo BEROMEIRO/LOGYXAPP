@@ -25,15 +25,15 @@ dynamic deserializeStructParam<T>(
   if (param == null) {
     return null;
   } else if (isList) {
-    final paramValues;
+    final Iterable<dynamic> paramValues; // Tipo explicitamente definido
     try {
       paramValues = param is Iterable ? param : json.decode(param);
     } catch (e) {
       return null;
     }
-    if (paramValues is! Iterable) {
-      return null;
-    }
+    //if (paramValues is! Iterable) {
+    //  return null;
+    //}
     return paramValues
         .map<T>((e) => deserializeStructParam<T>(e, paramType, false,
             structBuilder: structBuilder))

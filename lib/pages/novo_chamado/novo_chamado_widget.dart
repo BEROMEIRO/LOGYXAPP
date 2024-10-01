@@ -63,8 +63,7 @@ class _NovoChamadoWidgetState extends State<NovoChamadoWidget> {
 
     return GestureDetector(
       onTap: () => FocusScope.of(context).unfocus(),
-      child: WillPopScope(
-        onWillPop: () async => false,
+      child: PopScope(
         child: Scaffold(
           key: scaffoldKey,
           appBar: AppBar(
@@ -81,9 +80,9 @@ class _NovoChamadoWidgetState extends State<NovoChamadoWidget> {
                 size: 30.0,
               ),
               onPressed: () async {
-                FFAppState().Projeto = '';
-                FFAppState().Ocorrencia = '';
-                FFAppState().Tipo = '';
+                FFAppState().projeto = '';
+                FFAppState().ocorrencia = '';
+                FFAppState().tipo = '';
                 FFAppState().ossList = [];
                 FFAppState().urlphoto = '';
                 FFAppState().isDropdownVisible = false;
@@ -133,58 +132,82 @@ class _NovoChamadoWidgetState extends State<NovoChamadoWidget> {
                         );
                       },
                     );
-                    if (shouldSetState) safeSetState(() {});
-                    return;
+                    /*if (shouldSetState) safeSetState(() {});
+                    return;*/
                   }
                   _model.aPIAbertura = await APIAberturaCall.call(
-                    telefoneTecnico: FFAppState().TelefoneAppState,
+                    telefoneTecnico: FFAppState().telefoneAppState,
                     problemaApresentado:
                         _model.textFieldDescricaoTextController.text,
                     ocorrencia: _model.dropDOcorrenciaValue,
                     projeto: _model.dropDProjetoValue,
                     tipoAtendimento: _model.dropDTipoValue,
-                    tecnico: FFAppState().NomeAppState,
+                    tecnico: FFAppState().nomeAppState,
                     uid: FFAppState().uidAppState,
                     latitude: FFAppState().currentLat.toString(),
                     longitude: FFAppState().currentLng.toString(),
                     imageurl: FFAppState().urlphoto,
-                    unidade: FFAppState().UnidadeAppState,
+                    unidade: FFAppState().unidadeAppState,
                     ossList: FFAppState().ossList,
                   );
 
                   shouldSetState = true;
-                  if ((_model.aPIAbertura?.succeeded ?? true)) {
-                    FFAppState().urlphoto = getJsonField(
-                      (_model.apiimageok?.jsonBody ?? ''),
-                      r'''$.url''',
-                    ).toString();
 
-                    context.goNamed('Home');
-                  } else {
-                    await showDialog(
-                      context: context,
-                      builder: (alertDialogContext) {
-                        return AlertDialog(
-                          title: const Text('Faltou informações!'),
-                          content: const Text('Verifique as informações solicitadas'),
-                          actions: [
-                            TextButton(
-                              onPressed: () =>
-                                  Navigator.pop(alertDialogContext),
-                              child: const Text('Ok'),
-                            ),
-                          ],
-                        );
-                      },
-                    );
+                  /*estou ajustando daqui para baixo*/
+
+                  Future<void> showErrorDialog(BuildContext context) async {
+                    if (mounted) {
+                      await showDialog(
+                        context: context,
+                        builder: (alertDialogContext) {
+                          return AlertDialog(
+                            title: const Text('Faltou informações!'),
+                            content: const Text(
+                                'Verifique as informações solicitadas'),
+                            actions: [
+                              TextButton(
+                                onPressed: () =>
+                                    Navigator.pop(alertDialogContext),
+                                child: const Text('Ok'),
+                              ),
+                            ],
+                          );
+                        },
+                      );
+                    }
                   }
+
+// Encapsula a lógica em uma função async
+                  Future<void> executeMainLogic(BuildContext context) async {
+                    if ((_model.aPIAbertura?.succeeded ?? true)) {
+                      FFAppState().urlphoto = getJsonField(
+                        (_model.apiimageok?.jsonBody ?? ''),
+                        r'''$.url''',
+                      ).toString();
+
+                      if (mounted) {
+                        context.goNamed('Home');
+                      }
+                    } else {
+                      await showErrorDialog(context);
+                    }
+                  }
+
+                  void executeLogic(BuildContext context) {
+                    if (mounted) {
+                      executeMainLogic(context); // Chama a função sem 'await'
+                    }
+                  }
+
+                  /*estou ajustando daqui para cima*/
 
                   if (shouldSetState) safeSetState(() {});
                 },
                 text: 'Salvar',
                 options: FFButtonOptions(
                   height: 40.0,
-                  padding: const EdgeInsetsDirectional.fromSTEB(24.0, 0.0, 24.0, 0.0),
+                  padding: const EdgeInsetsDirectional.fromSTEB(
+                      24.0, 0.0, 24.0, 0.0),
                   iconPadding:
                       const EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
                   color: const Color(0xFF3976EF),
@@ -242,8 +265,9 @@ class _NovoChamadoWidgetState extends State<NovoChamadoWidget> {
                                 children: [
                                   Expanded(
                                     child: Padding(
-                                      padding: const EdgeInsetsDirectional.fromSTEB(
-                                          8.0, 0.0, 8.0, 0.0),
+                                      padding:
+                                          const EdgeInsetsDirectional.fromSTEB(
+                                              8.0, 0.0, 8.0, 0.0),
                                       child: TextFormField(
                                         controller:
                                             _model.osControllerTextController,
@@ -334,8 +358,8 @@ class _NovoChamadoWidgetState extends State<NovoChamadoWidget> {
                                           return;
                                         }
                                         if (_model.osControllerTextController
-                                                    .text ==
-                                                '') {
+                                                .text ==
+                                            '') {
                                           await showDialog(
                                             context: context,
                                             builder: (alertDialogContext) {
@@ -367,11 +391,10 @@ class _NovoChamadoWidgetState extends State<NovoChamadoWidget> {
                                       text: 'Add na lista',
                                       options: FFButtonOptions(
                                         height: 40.0,
-                                        padding: const EdgeInsetsDirectional.fromSTEB(
-                                            24.0, 0.0, 24.0, 0.0),
-                                        iconPadding:
-                                            const EdgeInsetsDirectional.fromSTEB(
-                                                0.0, 0.0, 0.0, 0.0),
+                                        padding: const EdgeInsetsDirectional
+                                            .fromSTEB(24.0, 0.0, 24.0, 0.0),
+                                        iconPadding: const EdgeInsetsDirectional
+                                            .fromSTEB(0.0, 0.0, 0.0, 0.0),
                                         color: const Color(0xFFEFA139),
                                         textStyle: FlutterFlowTheme.of(context)
                                             .titleSmall
@@ -493,27 +516,42 @@ class _NovoChamadoWidgetState extends State<NovoChamadoWidget> {
                                         onChanged: (val) async {
                                           safeSetState(() =>
                                               _model.dropDProjetoValue = val);
-                                          var shouldSetState = false;
-                                          _model.apiProjetoResp =
-                                              await APIProjetoCall.call();
 
-                                          shouldSetState = true;
-                                          if ((_model
-                                                  .apiProjetoResp?.succeeded ??
-                                              true)) {
-                                            await Future.delayed(const Duration(
-                                                milliseconds: 50));
-                                            FFAppState()
-                                                .isFirstDropdownSelected = true;
-                                          } else {
-                                            if (shouldSetState) {
-                                              safeSetState(() {});
+                                          // Chama a API apenas se um projeto foi selecionado
+                                          if (val != null && val.isNotEmpty) {
+                                            _model.apiProjetoResp =
+                                                await APIProjetoCall.call();
+
+                                            // Verifica se a chamada foi bem-sucedida
+                                            if (_model.apiProjetoResp
+                                                    ?.succeeded ??
+                                                false) {
+                                              await Future.delayed(
+                                                  const Duration(
+                                                      milliseconds: 50));
+                                              FFAppState()
+                                                      .isFirstDropdownSelected =
+                                                  true;
+                                            } else {
+                                              // Exibe uma mensagem de erro, se necessário
+                                              await showDialog(
+                                                context: context,
+                                                builder: (context) {
+                                                  return AlertDialog(
+                                                    content: const Text(
+                                                        'Erro ao carregar os dados do projeto.'),
+                                                    actions: [
+                                                      TextButton(
+                                                        onPressed: () =>
+                                                            Navigator.pop(
+                                                                context),
+                                                        child: const Text('Ok'),
+                                                      ),
+                                                    ],
+                                                  );
+                                                },
+                                              );
                                             }
-                                            return;
-                                          }
-
-                                          if (shouldSetState) {
-                                            safeSetState(() {});
                                           }
                                         },
                                         width: 300.0,
@@ -539,8 +577,8 @@ class _NovoChamadoWidgetState extends State<NovoChamadoWidget> {
                                                 .alternate,
                                         borderWidth: 2.0,
                                         borderRadius: 8.0,
-                                        margin: const EdgeInsetsDirectional.fromSTEB(
-                                            16.0, 4.0, 16.0, 4.0),
+                                        margin: const EdgeInsetsDirectional
+                                            .fromSTEB(16.0, 4.0, 16.0, 4.0),
                                         hidesUnderline: true,
                                         isOverButton: true,
                                         isSearchable: false,
@@ -594,6 +632,17 @@ class _NovoChamadoWidgetState extends State<NovoChamadoWidget> {
                                               .dropDOcorrenciaValue = val);
                                           FFAppState()
                                               .isSecondDropdownSelected = true;
+
+                                          if (_model.dropDProjetoValue !=
+                                                  null &&
+                                              _model.dropDProjetoValue!
+                                                  .isNotEmpty) {
+                                            // Chama a API somente se o valor do projeto estiver definido
+                                            _model.apiResult7gb =
+                                                await APIProjetoCall.call();
+                                            // Atualiza o estado após a chamada
+                                            safeSetState(() {});
+                                          }
                                         },
                                         width: 300.0,
                                         height: 56.0,
@@ -618,8 +667,8 @@ class _NovoChamadoWidgetState extends State<NovoChamadoWidget> {
                                                 .alternate,
                                         borderWidth: 2.0,
                                         borderRadius: 8.0,
-                                        margin: const EdgeInsetsDirectional.fromSTEB(
-                                            16.0, 4.0, 16.0, 4.0),
+                                        margin: const EdgeInsetsDirectional
+                                            .fromSTEB(16.0, 4.0, 16.0, 4.0),
                                         hidesUnderline: true,
                                         isOverButton: true,
                                         isSearchable: false,
@@ -653,6 +702,7 @@ class _NovoChamadoWidgetState extends State<NovoChamadoWidget> {
                                           ),
                                         );
                                       }
+
                                       final dropDTipoAPITiposPedidosResponse =
                                           snapshot.data!;
 
@@ -671,34 +721,22 @@ class _NovoChamadoWidgetState extends State<NovoChamadoWidget> {
                                         onChanged: (val) async {
                                           safeSetState(() =>
                                               _model.dropDTipoValue = val);
-                                          var shouldSetState = false;
                                           FFAppState().isThirdDropdownSelected =
                                               true;
-                                          safeSetState(() {});
-                                          if ((_model.dropDProjetoValue ==
-                                                          null ||
-                                                      _model.dropDProjetoValue ==
-                                                          '') &&
-                                                  (_model.dropDProjetoValue !=
-                                                          null &&
-                                                      _model.dropDProjetoValue !=
-                                                          '')
-                                              ? true
-                                              : false) {
-                                            _model.apiResult7gb =
-                                                await APIProjetoCall.call();
 
-                                            shouldSetState = true;
-                                          } else {
-                                            if (shouldSetState) {
-                                              safeSetState(() {});
-                                            }
-                                            return;
+                                          // Verifica se o projeto está vazio
+                                          if (_model.dropDProjetoValue ==
+                                                  null ||
+                                              _model
+                                                  .dropDProjetoValue!.isEmpty) {
+                                            return; // Se o projeto estiver vazio, retorna sem fazer nada
                                           }
 
-                                          if (shouldSetState) {
-                                            safeSetState(() {});
-                                          }
+                                          // Chama a API se o projeto estiver válido
+                                          _model.apiResult7gb =
+                                              await APIProjetoCall.call();
+                                          safeSetState(
+                                              () {}); // Atualiza o estado após a chamada da API
                                         },
                                         width: 300.0,
                                         height: 56.0,
@@ -723,8 +761,8 @@ class _NovoChamadoWidgetState extends State<NovoChamadoWidget> {
                                                 .alternate,
                                         borderWidth: 2.0,
                                         borderRadius: 8.0,
-                                        margin: const EdgeInsetsDirectional.fromSTEB(
-                                            16.0, 4.0, 16.0, 4.0),
+                                        margin: const EdgeInsetsDirectional
+                                            .fromSTEB(16.0, 4.0, 16.0, 4.0),
                                         hidesUnderline: true,
                                         isOverButton: true,
                                         isSearchable: false,
@@ -744,8 +782,8 @@ class _NovoChamadoWidgetState extends State<NovoChamadoWidget> {
                                   if (FFAppState().isThirdDropdownSelected)
                                     Expanded(
                                       child: Padding(
-                                        padding: const EdgeInsetsDirectional.fromSTEB(
-                                            8.0, 0.0, 8.0, 0.0),
+                                        padding: const EdgeInsetsDirectional
+                                            .fromSTEB(8.0, 0.0, 8.0, 0.0),
                                         child: TextFormField(
                                           controller: _model
                                               .textFieldDescricaoTextController,
@@ -869,8 +907,10 @@ class _NovoChamadoWidgetState extends State<NovoChamadoWidget> {
                                             size: 25.0,
                                           ),
                                           showLoadingIndicator: true,
-                                          onPressed: (FFAppState().ossList.first ==
-                                                      '')
+                                          onPressed: (FFAppState()
+                                                      .ossList
+                                                      .first ==
+                                                  '')
                                               ? null
                                               : () async {
                                                   var shouldSetState = false;
@@ -971,7 +1011,8 @@ class _NovoChamadoWidgetState extends State<NovoChamadoWidget> {
                                                               onPressed: () =>
                                                                   Navigator.pop(
                                                                       alertDialogContext),
-                                                              child: const Text('Ok'),
+                                                              child: const Text(
+                                                                  'Ok'),
                                                             ),
                                                           ],
                                                         );

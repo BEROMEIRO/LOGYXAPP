@@ -47,7 +47,8 @@ class _OSCopyWidgetState extends State<OSCopyWidget> {
     super.initState();
     _model = createModel(context, () => OSCopyModel());
 
-    getCurrentUserLocation(defaultLocation: const LatLng(0.0, 0.0), cached: true)
+    getCurrentUserLocation(
+            defaultLocation: const LatLng(0.0, 0.0), cached: true)
         .then((loc) => safeSetState(() => currentUserLocationValue = loc));
     WidgetsBinding.instance.addPostFrameCallback((_) => safeSetState(() {}));
   }
@@ -181,9 +182,8 @@ class _OSCopyWidgetState extends State<OSCopyWidget> {
                                           CrossAxisAlignment.start,
                                       children: [
                                         Padding(
-                                          padding:
-                                              const EdgeInsetsDirectional.fromSTEB(
-                                                  0.0, 0.0, 0.0, 5.0),
+                                          padding: const EdgeInsetsDirectional
+                                              .fromSTEB(0.0, 0.0, 0.0, 5.0),
                                           child: Text(
                                             'DADOS DO CHAMADO',
                                             style: FlutterFlowTheme.of(context)
@@ -198,9 +198,8 @@ class _OSCopyWidgetState extends State<OSCopyWidget> {
                                           ),
                                         ),
                                         Padding(
-                                          padding:
-                                              const EdgeInsetsDirectional.fromSTEB(
-                                                  0.0, 0.0, 0.0, 5.0),
+                                          padding: const EdgeInsetsDirectional
+                                              .fromSTEB(0.0, 0.0, 0.0, 5.0),
                                           child: Text(
                                             'Ordem de Serviço:',
                                             style: FlutterFlowTheme.of(context)
@@ -215,9 +214,8 @@ class _OSCopyWidgetState extends State<OSCopyWidget> {
                                           ),
                                         ),
                                         Padding(
-                                          padding:
-                                              const EdgeInsetsDirectional.fromSTEB(
-                                                  0.0, 0.0, 0.0, 5.0),
+                                          padding: const EdgeInsetsDirectional
+                                              .fromSTEB(0.0, 0.0, 0.0, 5.0),
                                           child: Text(
                                             valueOrDefault<String>(
                                               widget.parOS,
@@ -235,9 +233,8 @@ class _OSCopyWidgetState extends State<OSCopyWidget> {
                                           ),
                                         ),
                                         Padding(
-                                          padding:
-                                              const EdgeInsetsDirectional.fromSTEB(
-                                                  0.0, 0.0, 0.0, 5.0),
+                                          padding: const EdgeInsetsDirectional
+                                              .fromSTEB(0.0, 0.0, 0.0, 5.0),
                                           child: Text(
                                             'Projeto:',
                                             style: FlutterFlowTheme.of(context)
@@ -252,9 +249,8 @@ class _OSCopyWidgetState extends State<OSCopyWidget> {
                                           ),
                                         ),
                                         Padding(
-                                          padding:
-                                              const EdgeInsetsDirectional.fromSTEB(
-                                                  0.0, 0.0, 0.0, 5.0),
+                                          padding: const EdgeInsetsDirectional
+                                              .fromSTEB(0.0, 0.0, 0.0, 5.0),
                                           child: Text(
                                             valueOrDefault<String>(
                                               widget.parProjeto,
@@ -272,9 +268,8 @@ class _OSCopyWidgetState extends State<OSCopyWidget> {
                                           ),
                                         ),
                                         Padding(
-                                          padding:
-                                              const EdgeInsetsDirectional.fromSTEB(
-                                                  0.0, 0.0, 0.0, 5.0),
+                                          padding: const EdgeInsetsDirectional
+                                              .fromSTEB(0.0, 0.0, 0.0, 5.0),
                                           child: Text(
                                             'Tipo de Serviço:',
                                             style: FlutterFlowTheme.of(context)
@@ -289,9 +284,8 @@ class _OSCopyWidgetState extends State<OSCopyWidget> {
                                           ),
                                         ),
                                         Padding(
-                                          padding:
-                                              const EdgeInsetsDirectional.fromSTEB(
-                                                  0.0, 0.0, 0.0, 5.0),
+                                          padding: const EdgeInsetsDirectional
+                                              .fromSTEB(0.0, 0.0, 0.0, 5.0),
                                           child: Text(
                                             valueOrDefault<String>(
                                               widget.parTipo,
@@ -309,9 +303,8 @@ class _OSCopyWidgetState extends State<OSCopyWidget> {
                                           ),
                                         ),
                                         Padding(
-                                          padding:
-                                              const EdgeInsetsDirectional.fromSTEB(
-                                                  0.0, 0.0, 0.0, 5.0),
+                                          padding: const EdgeInsetsDirectional
+                                              .fromSTEB(0.0, 0.0, 0.0, 5.0),
                                           child: Text(
                                             'Data:',
                                             style: FlutterFlowTheme.of(context)
@@ -326,9 +319,8 @@ class _OSCopyWidgetState extends State<OSCopyWidget> {
                                           ),
                                         ),
                                         Padding(
-                                          padding:
-                                              const EdgeInsetsDirectional.fromSTEB(
-                                                  0.0, 0.0, 0.0, 5.0),
+                                          padding: const EdgeInsetsDirectional
+                                              .fromSTEB(0.0, 0.0, 0.0, 5.0),
                                           child: Text(
                                             valueOrDefault<String>(
                                               widget.parData,
@@ -346,9 +338,8 @@ class _OSCopyWidgetState extends State<OSCopyWidget> {
                                           ),
                                         ),
                                         Padding(
-                                          padding:
-                                              const EdgeInsetsDirectional.fromSTEB(
-                                                  0.0, 0.0, 0.0, 5.0),
+                                          padding: const EdgeInsetsDirectional
+                                              .fromSTEB(0.0, 0.0, 0.0, 5.0),
                                           child: Text(
                                             'Status:',
                                             style: FlutterFlowTheme.of(context)
@@ -363,9 +354,8 @@ class _OSCopyWidgetState extends State<OSCopyWidget> {
                                           ),
                                         ),
                                         Padding(
-                                          padding:
-                                              const EdgeInsetsDirectional.fromSTEB(
-                                                  0.0, 0.0, 0.0, 5.0),
+                                          padding: const EdgeInsetsDirectional
+                                              .fromSTEB(0.0, 0.0, 0.0, 5.0),
                                           child: Text(
                                             valueOrDefault<String>(
                                               widget.parStatus,
@@ -383,9 +373,8 @@ class _OSCopyWidgetState extends State<OSCopyWidget> {
                                           ),
                                         ),
                                         Padding(
-                                          padding:
-                                              const EdgeInsetsDirectional.fromSTEB(
-                                                  0.0, 0.0, 0.0, 5.0),
+                                          padding: const EdgeInsetsDirectional
+                                              .fromSTEB(0.0, 0.0, 0.0, 5.0),
                                           child: Text(
                                             'Ocorrência:',
                                             style: FlutterFlowTheme.of(context)
@@ -400,9 +389,8 @@ class _OSCopyWidgetState extends State<OSCopyWidget> {
                                           ),
                                         ),
                                         Padding(
-                                          padding:
-                                              const EdgeInsetsDirectional.fromSTEB(
-                                                  0.0, 0.0, 0.0, 5.0),
+                                          padding: const EdgeInsetsDirectional
+                                              .fromSTEB(0.0, 0.0, 0.0, 5.0),
                                           child: Text(
                                             valueOrDefault<String>(
                                               widget.parOcorrencia,
@@ -455,8 +443,9 @@ class _OSCopyWidgetState extends State<OSCopyWidget> {
                                               mainAxisSize: MainAxisSize.max,
                                               children: [
                                                 Padding(
-                                                  padding: const EdgeInsetsDirectional
-                                                      .fromSTEB(
+                                                  padding:
+                                                      const EdgeInsetsDirectional
+                                                          .fromSTEB(
                                                           0.0, 0.0, 5.0, 0.0),
                                                   child: Text(
                                                     'Evidência',
@@ -479,8 +468,8 @@ class _OSCopyWidgetState extends State<OSCopyWidget> {
                                                   child: Padding(
                                                     padding:
                                                         const EdgeInsetsDirectional
-                                                            .fromSTEB(5.0, 8.0,
-                                                                0.0, 8.0),
+                                                            .fromSTEB(
+                                                            5.0, 8.0, 0.0, 8.0),
                                                     child:
                                                         FlutterFlowIconButton(
                                                       borderColor:
@@ -488,8 +477,8 @@ class _OSCopyWidgetState extends State<OSCopyWidget> {
                                                       borderRadius: 15.0,
                                                       borderWidth: 1.0,
                                                       buttonSize: 60.0,
-                                                      fillColor:
-                                                          const Color(0xFF4898F8),
+                                                      fillColor: const Color(
+                                                          0xFF4898F8),
                                                       icon: Icon(
                                                         Icons
                                                             .camera_alt_rounded,
@@ -539,8 +528,8 @@ class _OSCopyWidgetState extends State<OSCopyWidget> {
                                                   child: Padding(
                                                     padding:
                                                         const EdgeInsetsDirectional
-                                                            .fromSTEB(7.0, 8.0,
-                                                                0.0, 8.0),
+                                                            .fromSTEB(
+                                                            7.0, 8.0, 0.0, 8.0),
                                                     child:
                                                         FlutterFlowIconButton(
                                                       key: ValueKey(
@@ -619,8 +608,8 @@ class _OSCopyWidgetState extends State<OSCopyWidget> {
                                                   child: Padding(
                                                     padding:
                                                         const EdgeInsetsDirectional
-                                                            .fromSTEB(8.0, 8.0,
-                                                                0.0, 8.0),
+                                                            .fromSTEB(
+                                                            8.0, 8.0, 0.0, 8.0),
                                                     child:
                                                         FlutterFlowIconButton(
                                                       borderColor:
@@ -628,8 +617,8 @@ class _OSCopyWidgetState extends State<OSCopyWidget> {
                                                       borderRadius: 15.0,
                                                       borderWidth: 1.0,
                                                       buttonSize: 60.0,
-                                                      fillColor:
-                                                          const Color(0xFF4898F8),
+                                                      fillColor: const Color(
+                                                          0xFF4898F8),
                                                       icon: Icon(
                                                         Icons
                                                             .border_color_sharp,
@@ -657,8 +646,9 @@ class _OSCopyWidgetState extends State<OSCopyWidget> {
                                               mainAxisSize: MainAxisSize.max,
                                               children: [
                                                 Padding(
-                                                  padding: const EdgeInsetsDirectional
-                                                      .fromSTEB(
+                                                  padding:
+                                                      const EdgeInsetsDirectional
+                                                          .fromSTEB(
                                                           1.0, 0.0, 0.0, 0.0),
                                                   child: Text(
                                                     'Reabrir',
@@ -682,7 +672,7 @@ class _OSCopyWidgetState extends State<OSCopyWidget> {
                                                     padding:
                                                         const EdgeInsetsDirectional
                                                             .fromSTEB(30.0, 8.0,
-                                                                0.0, 8.0),
+                                                            0.0, 8.0),
                                                     child:
                                                         FlutterFlowIconButton(
                                                       borderColor:
@@ -690,8 +680,8 @@ class _OSCopyWidgetState extends State<OSCopyWidget> {
                                                       borderRadius: 15.0,
                                                       borderWidth: 1.0,
                                                       buttonSize: 60.0,
-                                                      fillColor:
-                                                          const Color(0xFF4898F8),
+                                                      fillColor: const Color(
+                                                          0xFF4898F8),
                                                       icon: Icon(
                                                         Icons.cached,
                                                         color:
@@ -701,15 +691,15 @@ class _OSCopyWidgetState extends State<OSCopyWidget> {
                                                         size: 24.0,
                                                       ),
                                                       onPressed: () async {
-                                                        FFAppState().OS =
+                                                        FFAppState().os =
                                                             widget.parOS!;
-                                                        FFAppState().Projeto =
+                                                        FFAppState().projeto =
                                                             widget.parProjeto!;
                                                         FFAppState()
-                                                                .Ocorrencia =
+                                                                .ocorrencia =
                                                             widget
                                                                 .parOcorrencia!;
-                                                        FFAppState().Tipo =
+                                                        FFAppState().tipo =
                                                             widget.parTipo!;
                                                         FFAppState()
                                                             .update(() {});
@@ -724,8 +714,7 @@ class _OSCopyWidgetState extends State<OSCopyWidget> {
                                                             ),
                                                             'project':
                                                                 serializeParam(
-                                                              widget
-                                                                  .parProjeto,
+                                                              widget.parProjeto,
                                                               ParamType.String,
                                                             ),
                                                             'oco':
@@ -792,9 +781,8 @@ class _OSCopyWidgetState extends State<OSCopyWidget> {
                                           CrossAxisAlignment.start,
                                       children: [
                                         Padding(
-                                          padding:
-                                              const EdgeInsetsDirectional.fromSTEB(
-                                                  0.0, 0.0, 0.0, 5.0),
+                                          padding: const EdgeInsetsDirectional
+                                              .fromSTEB(0.0, 0.0, 0.0, 5.0),
                                           child: Text(
                                             'Dados do atendimento',
                                             style: FlutterFlowTheme.of(context)
@@ -809,9 +797,8 @@ class _OSCopyWidgetState extends State<OSCopyWidget> {
                                           ),
                                         ),
                                         Padding(
-                                          padding:
-                                              const EdgeInsetsDirectional.fromSTEB(
-                                                  0.0, 0.0, 0.0, 5.0),
+                                          padding: const EdgeInsetsDirectional
+                                              .fromSTEB(0.0, 0.0, 0.0, 5.0),
                                           child: Text(
                                             'Número de Atendimento:',
                                             style: FlutterFlowTheme.of(context)
@@ -826,9 +813,8 @@ class _OSCopyWidgetState extends State<OSCopyWidget> {
                                           ),
                                         ),
                                         Padding(
-                                          padding:
-                                              const EdgeInsetsDirectional.fromSTEB(
-                                                  0.0, 0.0, 0.0, 5.0),
+                                          padding: const EdgeInsetsDirectional
+                                              .fromSTEB(0.0, 0.0, 0.0, 5.0),
                                           child: Text(
                                             valueOrDefault<String>(
                                               widget.parNrAtendimento,
@@ -846,9 +832,8 @@ class _OSCopyWidgetState extends State<OSCopyWidget> {
                                           ),
                                         ),
                                         Padding(
-                                          padding:
-                                              const EdgeInsetsDirectional.fromSTEB(
-                                                  0.0, 0.0, 0.0, 5.0),
+                                          padding: const EdgeInsetsDirectional
+                                              .fromSTEB(0.0, 0.0, 0.0, 5.0),
                                           child: Text(
                                             'Observação:',
                                             style: FlutterFlowTheme.of(context)
@@ -863,9 +848,8 @@ class _OSCopyWidgetState extends State<OSCopyWidget> {
                                           ),
                                         ),
                                         Padding(
-                                          padding:
-                                              const EdgeInsetsDirectional.fromSTEB(
-                                                  0.0, 0.0, 0.0, 5.0),
+                                          padding: const EdgeInsetsDirectional
+                                              .fromSTEB(0.0, 0.0, 0.0, 5.0),
                                           child: Text(
                                             valueOrDefault<String>(
                                               widget.parObs,
@@ -883,9 +867,8 @@ class _OSCopyWidgetState extends State<OSCopyWidget> {
                                           ),
                                         ),
                                         Padding(
-                                          padding:
-                                              const EdgeInsetsDirectional.fromSTEB(
-                                                  0.0, 0.0, 0.0, 5.0),
+                                          padding: const EdgeInsetsDirectional
+                                              .fromSTEB(0.0, 0.0, 0.0, 5.0),
                                           child: Text(
                                             'Atendente:',
                                             style: FlutterFlowTheme.of(context)
@@ -900,9 +883,8 @@ class _OSCopyWidgetState extends State<OSCopyWidget> {
                                           ),
                                         ),
                                         Padding(
-                                          padding:
-                                              const EdgeInsetsDirectional.fromSTEB(
-                                                  0.0, 0.0, 0.0, 5.0),
+                                          padding: const EdgeInsetsDirectional
+                                              .fromSTEB(0.0, 0.0, 0.0, 5.0),
                                           child: Text(
                                             valueOrDefault<String>(
                                               widget.parAtendente,

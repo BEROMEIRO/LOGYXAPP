@@ -20,7 +20,6 @@ class HomeWidget extends StatefulWidget {
 
 class _HomeWidgetState extends State<HomeWidget> {
   late HomeModel _model;
-
   final scaffoldKey = GlobalKey<ScaffoldState>();
 
   @override
@@ -30,13 +29,23 @@ class _HomeWidgetState extends State<HomeWidget> {
 
     // On page load action.
     SchedulerBinding.instance.addPostFrameCallback((_) async {
+      // Guardar o estado do widget
+      final isMounted = mounted; // Verifica se o widget ainda está montado
+
+      // Use await para chamar a API e aguarde a resposta
       _model.respok = await APIValidaInternetCall.call();
+
+      // Verifique se o widget ainda está montado antes de usar o contexto
+      if (!isMounted) return;
 
       if ((_model.respok?.succeeded ?? true)) {
         return;
       }
 
-      context.goNamed('Home_no_Internet');
+      // Use o context apenas se o widget ainda estiver montado
+      if (mounted) {
+        context.goNamed('Home_no_Internet');
+      }
     });
 
     WidgetsBinding.instance.addPostFrameCallback((_) => safeSetState(() {}));
@@ -55,8 +64,7 @@ class _HomeWidgetState extends State<HomeWidget> {
 
     return GestureDetector(
       onTap: () => FocusScope.of(context).unfocus(),
-      child: WillPopScope(
-        onWillPop: () async => false,
+      child: PopScope(
         child: Scaffold(
           key: scaffoldKey,
           backgroundColor: FlutterFlowTheme.of(context).primaryBackground,
@@ -74,7 +82,8 @@ class _HomeWidgetState extends State<HomeWidget> {
               backgroundColor: const Color(0xFF3976EF),
               automaticallyImplyLeading: true,
               title: Padding(
-                padding: const EdgeInsetsDirectional.fromSTEB(0.0, 15.0, 52.0, 0.0),
+                padding:
+                    const EdgeInsetsDirectional.fromSTEB(0.0, 15.0, 52.0, 0.0),
                 child: Row(
                   mainAxisSize: MainAxisSize.max,
                   mainAxisAlignment: MainAxisAlignment.center,
@@ -198,18 +207,18 @@ class _HomeWidgetState extends State<HomeWidget> {
                             builder: (context) {
                               final listachamados =
                                   (listViewAPIOrdensAtendidasResponse.jsonBody
-                                                  .toList()
-                                                  .map<OrdensAtendidasStruct?>(
-                                                      OrdensAtendidasStruct
-                                                          .maybeFromMap)
-                                                  .toList()
-                                              as Iterable<
-                                                  OrdensAtendidasStruct?>)
-                                          .withoutNulls
-                                          .map((e) => e)
-                                          .toList()
-                                          .toList() ??
-                                      [];
+                                              .toList()
+                                              .map<OrdensAtendidasStruct?>(
+                                                  OrdensAtendidasStruct
+                                                      .maybeFromMap)
+                                              .toList()
+                                          as Iterable<OrdensAtendidasStruct?>)
+                                      .withoutNulls
+                                      .map((e) => e)
+                                      .toList()
+                                  /*.toList() ??
+                                      []*/
+                                  ;
 
                               return RefreshIndicator(
                                 onRefresh: () async {
@@ -224,8 +233,9 @@ class _HomeWidgetState extends State<HomeWidget> {
                                     final listachamadosItem =
                                         listachamados[listachamadosIndex];
                                     return Padding(
-                                      padding: const EdgeInsetsDirectional.fromSTEB(
-                                          10.0, 0.0, 10.0, 0.0),
+                                      padding:
+                                          const EdgeInsetsDirectional.fromSTEB(
+                                              10.0, 0.0, 10.0, 0.0),
                                       child: SingleChildScrollView(
                                         primary: false,
                                         child: Column(
@@ -236,8 +246,10 @@ class _HomeWidgetState extends State<HomeWidget> {
                                               CrossAxisAlignment.start,
                                           children: [
                                             Padding(
-                                              padding: const EdgeInsetsDirectional
-                                                  .fromSTEB(0.0, 8.0, 0.0, 0.0),
+                                              padding:
+                                                  const EdgeInsetsDirectional
+                                                      .fromSTEB(
+                                                      0.0, 8.0, 0.0, 0.0),
                                               child: FutureBuilder<
                                                   ApiCallResponse>(
                                                 future: APIHistoricoOSCall.call(
@@ -281,7 +293,8 @@ class _HomeWidgetState extends State<HomeWidget> {
                                                     ),
                                                     child: Padding(
                                                       padding:
-                                                          const EdgeInsets.all(10.0),
+                                                          const EdgeInsets.all(
+                                                              10.0),
                                                       child: InkWell(
                                                         splashColor:
                                                             Colors.transparent,
@@ -503,8 +516,8 @@ class _HomeWidgetState extends State<HomeWidget> {
                                                                 size: 40.0,
                                                               ),
                                                             if ((listachamadosItem
-                                                                            .status ==
-                                                                        '') ||
+                                                                        .status ==
+                                                                    '') ||
                                                                 (listachamadosItem
                                                                         .status ==
                                                                     '...'))
@@ -519,10 +532,10 @@ class _HomeWidgetState extends State<HomeWidget> {
                                                               padding:
                                                                   const EdgeInsetsDirectional
                                                                       .fromSTEB(
-                                                                          5.0,
-                                                                          0.0,
-                                                                          0.0,
-                                                                          0.0),
+                                                                      5.0,
+                                                                      0.0,
+                                                                      0.0,
+                                                                      0.0),
                                                               child: Column(
                                                                 mainAxisSize:
                                                                     MainAxisSize
@@ -537,10 +550,10 @@ class _HomeWidgetState extends State<HomeWidget> {
                                                                   Padding(
                                                                     padding: const EdgeInsetsDirectional
                                                                         .fromSTEB(
-                                                                            0.0,
-                                                                            0.0,
-                                                                            0.0,
-                                                                            4.0),
+                                                                        0.0,
+                                                                        0.0,
+                                                                        0.0,
+                                                                        4.0),
                                                                     child: Text(
                                                                       listachamadosItem
                                                                           .os,
@@ -560,10 +573,10 @@ class _HomeWidgetState extends State<HomeWidget> {
                                                                   Padding(
                                                                     padding: const EdgeInsetsDirectional
                                                                         .fromSTEB(
-                                                                            0.0,
-                                                                            0.0,
-                                                                            0.0,
-                                                                            4.0),
+                                                                        0.0,
+                                                                        0.0,
+                                                                        0.0,
+                                                                        4.0),
                                                                     child: Text(
                                                                       listachamadosItem
                                                                           .status,
@@ -652,13 +665,17 @@ class _HomeWidgetState extends State<HomeWidget> {
                                   size: 24.0,
                                 ),
                                 onPressed: () async {
-                                  _model.internetok =
+                                  // Chama a API e aguarda a resposta
+                                  final internetStatus =
                                       await APIValidaInternetCall.call();
 
-                                  if ((_model.internetok?.succeeded ?? true)) {
-                                    FFAppState().Projeto = '';
-                                    FFAppState().Ocorrencia = '';
-                                    FFAppState().Tipo = '';
+                                  // Limpa o estado
+                                  bool isSuccess =
+                                      internetStatus.succeeded == true;
+                                  if (isSuccess) {
+                                    FFAppState().projeto = '';
+                                    FFAppState().ocorrencia = '';
+                                    FFAppState().tipo = '';
                                     FFAppState().urlphoto = '';
                                     FFAppState().isFirstDropdownSelected =
                                         false;
@@ -669,12 +686,22 @@ class _HomeWidgetState extends State<HomeWidget> {
                                     FFAppState().isThirdDropdownSelected =
                                         false;
                                     FFAppState().isDropdownProjetoReset = false;
-
-                                    context.goNamed('NovoChamado');
-                                  } else {
-                                    context.goNamed('Home_no_Internet');
                                   }
 
+                                  // Verifica se o widget ainda está montado antes da navegação
+                                  if (!context.mounted) return;
+
+                                  // Navega para 'NovoChamado' ou 'Home_no_Internet'
+                                  final targetPage = isSuccess
+                                      ? 'NovoChamado'
+                                      : 'Home_no_Internet';
+
+                                  // Realiza a navegação
+                                  if (context.mounted) {
+                                    context.goNamed(targetPage);
+                                  }
+
+                                  // Atualiza o estado
                                   safeSetState(() {});
                                 },
                               ),

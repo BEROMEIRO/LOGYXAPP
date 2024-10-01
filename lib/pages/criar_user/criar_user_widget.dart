@@ -211,13 +211,14 @@ class _CriarUserWidgetState extends State<CriarUserWidget>
                                             alignment: const Alignment(0.0, 0),
                                             child: TabBar(
                                               isScrollable: true,
-                                              labelColor: const Color(0xFF101213),
+                                              labelColor:
+                                                  const Color(0xFF101213),
                                               unselectedLabelColor:
                                                   const Color(0xFF57636C),
                                               labelPadding:
                                                   const EdgeInsetsDirectional
                                                       .fromSTEB(
-                                                          32.0, 0.0, 32.0, 0.0),
+                                                      32.0, 0.0, 32.0, 0.0),
                                               labelStyle:
                                                   FlutterFlowTheme.of(context)
                                                       .titleLarge
@@ -266,7 +267,7 @@ class _CriarUserWidgetState extends State<CriarUserWidget>
                                                     padding:
                                                         const EdgeInsetsDirectional
                                                             .fromSTEB(12.0, 5.0,
-                                                                12.0, 0.0),
+                                                            12.0, 0.0),
                                                     child:
                                                         SingleChildScrollView(
                                                       child: Column(
@@ -283,10 +284,10 @@ class _CriarUserWidgetState extends State<CriarUserWidget>
                                                             padding:
                                                                 const EdgeInsetsDirectional
                                                                     .fromSTEB(
-                                                                        5.0,
-                                                                        0.0,
-                                                                        5.0,
-                                                                        8.0),
+                                                                    5.0,
+                                                                    0.0,
+                                                                    5.0,
+                                                                    8.0),
                                                             child: Text(
                                                               'Por favor preencha os campos abaixo',
                                                               textAlign:
@@ -314,10 +315,10 @@ class _CriarUserWidgetState extends State<CriarUserWidget>
                                                             padding:
                                                                 const EdgeInsetsDirectional
                                                                     .fromSTEB(
-                                                                        0.0,
-                                                                        0.0,
-                                                                        0.0,
-                                                                        8.0),
+                                                                    0.0,
+                                                                    0.0,
+                                                                    0.0,
+                                                                    8.0),
                                                             child: SizedBox(
                                                               width: double
                                                                   .infinity,
@@ -454,7 +455,7 @@ class _CriarUserWidgetState extends State<CriarUserWidget>
                                                                   contentPadding:
                                                                       const EdgeInsets
                                                                           .all(
-                                                                              24.0),
+                                                                          24.0),
                                                                   suffixIcon: _model
                                                                           .telefoneTxtFieldTextController!
                                                                           .text
@@ -510,10 +511,10 @@ class _CriarUserWidgetState extends State<CriarUserWidget>
                                                             padding:
                                                                 const EdgeInsetsDirectional
                                                                     .fromSTEB(
-                                                                        0.0,
-                                                                        0.0,
-                                                                        0.0,
-                                                                        8.0),
+                                                                    0.0,
+                                                                    0.0,
+                                                                    0.0,
+                                                                    8.0),
                                                             child: SizedBox(
                                                               width: double
                                                                   .infinity,
@@ -636,7 +637,7 @@ class _CriarUserWidgetState extends State<CriarUserWidget>
                                                                   contentPadding:
                                                                       const EdgeInsets
                                                                           .all(
-                                                                              24.0),
+                                                                          24.0),
                                                                   suffixIcon: _model
                                                                           .userNameTxtFieldTextController!
                                                                           .text
@@ -688,10 +689,10 @@ class _CriarUserWidgetState extends State<CriarUserWidget>
                                                             padding:
                                                                 const EdgeInsetsDirectional
                                                                     .fromSTEB(
-                                                                        0.0,
-                                                                        0.0,
-                                                                        0.0,
-                                                                        8.0),
+                                                                    0.0,
+                                                                    0.0,
+                                                                    0.0,
+                                                                    8.0),
                                                             child: SizedBox(
                                                               width: double
                                                                   .infinity,
@@ -814,7 +815,7 @@ class _CriarUserWidgetState extends State<CriarUserWidget>
                                                                   contentPadding:
                                                                       const EdgeInsets
                                                                           .all(
-                                                                              24.0),
+                                                                          24.0),
                                                                   suffixIcon: _model
                                                                           .nomeTxtFieldTextController!
                                                                           .text
@@ -866,10 +867,10 @@ class _CriarUserWidgetState extends State<CriarUserWidget>
                                                             padding:
                                                                 const EdgeInsetsDirectional
                                                                     .fromSTEB(
-                                                                        0.0,
-                                                                        0.0,
-                                                                        0.0,
-                                                                        8.0),
+                                                                    0.0,
+                                                                    0.0,
+                                                                    0.0,
+                                                                    8.0),
                                                             child: SizedBox(
                                                               width: double
                                                                   .infinity,
@@ -992,7 +993,7 @@ class _CriarUserWidgetState extends State<CriarUserWidget>
                                                                   contentPadding:
                                                                       const EdgeInsets
                                                                           .all(
-                                                                              24.0),
+                                                                          24.0),
                                                                   suffixIcon: _model
                                                                           .emailTxtfieldTextController!
                                                                           .text
@@ -1044,10 +1045,10 @@ class _CriarUserWidgetState extends State<CriarUserWidget>
                                                             padding:
                                                                 const EdgeInsetsDirectional
                                                                     .fromSTEB(
-                                                                        0.0,
-                                                                        0.0,
-                                                                        0.0,
-                                                                        8.0),
+                                                                    0.0,
+                                                                    0.0,
+                                                                    0.0,
+                                                                    8.0),
                                                             child: SizedBox(
                                                               width: double
                                                                   .infinity,
@@ -1170,7 +1171,7 @@ class _CriarUserWidgetState extends State<CriarUserWidget>
                                                                   contentPadding:
                                                                       const EdgeInsets
                                                                           .all(
-                                                                              24.0),
+                                                                          24.0),
                                                                   suffixIcon: _model
                                                                           .cPFTxtFieldTextController!
                                                                           .text
@@ -1223,10 +1224,10 @@ class _CriarUserWidgetState extends State<CriarUserWidget>
                                                             padding:
                                                                 const EdgeInsetsDirectional
                                                                     .fromSTEB(
-                                                                        0.0,
-                                                                        0.0,
-                                                                        0.0,
-                                                                        8.0),
+                                                                    0.0,
+                                                                    0.0,
+                                                                    0.0,
+                                                                    8.0),
                                                             child: SizedBox(
                                                               width: double
                                                                   .infinity,
@@ -1349,7 +1350,7 @@ class _CriarUserWidgetState extends State<CriarUserWidget>
                                                                   contentPadding:
                                                                       const EdgeInsets
                                                                           .all(
-                                                                              24.0),
+                                                                          24.0),
                                                                   suffixIcon: _model
                                                                           .unidadeTxtFieldTextController!
                                                                           .text
@@ -1398,10 +1399,10 @@ class _CriarUserWidgetState extends State<CriarUserWidget>
                                                             padding:
                                                                 const EdgeInsetsDirectional
                                                                     .fromSTEB(
-                                                                        0.0,
-                                                                        0.0,
-                                                                        0.0,
-                                                                        8.0),
+                                                                    0.0,
+                                                                    0.0,
+                                                                    0.0,
+                                                                    8.0),
                                                             child: SizedBox(
                                                               width: double
                                                                   .infinity,
@@ -1511,7 +1512,7 @@ class _CriarUserWidgetState extends State<CriarUserWidget>
                                                                   contentPadding:
                                                                       const EdgeInsets
                                                                           .all(
-                                                                              24.0),
+                                                                          24.0),
                                                                   suffixIcon:
                                                                       InkWell(
                                                                     onTap: () =>
@@ -1560,10 +1561,10 @@ class _CriarUserWidgetState extends State<CriarUserWidget>
                                                             padding:
                                                                 const EdgeInsetsDirectional
                                                                     .fromSTEB(
-                                                                        0.0,
-                                                                        0.0,
-                                                                        0.0,
-                                                                        8.0),
+                                                                    0.0,
+                                                                    0.0,
+                                                                    0.0,
+                                                                    8.0),
                                                             child: SizedBox(
                                                               width: double
                                                                   .infinity,
@@ -1673,7 +1674,7 @@ class _CriarUserWidgetState extends State<CriarUserWidget>
                                                                   contentPadding:
                                                                       const EdgeInsets
                                                                           .all(
-                                                                              24.0),
+                                                                          24.0),
                                                                   suffixIcon:
                                                                       InkWell(
                                                                     onTap: () =>
@@ -1722,10 +1723,10 @@ class _CriarUserWidgetState extends State<CriarUserWidget>
                                                             padding:
                                                                 const EdgeInsetsDirectional
                                                                     .fromSTEB(
-                                                                        0.0,
-                                                                        0.0,
-                                                                        0.0,
-                                                                        5.0),
+                                                                    0.0,
+                                                                    0.0,
+                                                                    0.0,
+                                                                    5.0),
                                                             child:
                                                                 FFButtonWidget(
                                                               onPressed:
@@ -1832,7 +1833,7 @@ class _CriarUserWidgetState extends State<CriarUserWidget>
                                                                     ),
                                                                   );
                                                                   FFAppState()
-                                                                          .NomeAppState =
+                                                                          .nomeAppState =
                                                                       getJsonField(
                                                                     (_model.aPICriarUser
                                                                             ?.jsonBody ??
@@ -1840,12 +1841,12 @@ class _CriarUserWidgetState extends State<CriarUserWidget>
                                                                     r'''$.name''',
                                                                   ).toString();
                                                                   FFAppState()
-                                                                          .PWDAppState =
+                                                                          .pWDAppState =
                                                                       _model
                                                                           .senhaConfTxtFieldTextController
                                                                           .text;
                                                                   FFAppState()
-                                                                          .TelefoneAppState =
+                                                                          .telefoneAppState =
                                                                       getJsonField(
                                                                     (_model.aPICriarUser
                                                                             ?.jsonBody ??
@@ -1861,7 +1862,7 @@ class _CriarUserWidgetState extends State<CriarUserWidget>
                                                                     r'''$.uid''',
                                                                   ).toString();
                                                                   FFAppState()
-                                                                          .UnidadeAppState =
+                                                                          .unidadeAppState =
                                                                       getJsonField(
                                                                     (_model.aPICriarUser
                                                                             ?.jsonBody ??
@@ -1869,7 +1870,7 @@ class _CriarUserWidgetState extends State<CriarUserWidget>
                                                                     r'''$.cod_base''',
                                                                   ).toString();
                                                                   FFAppState()
-                                                                          .CPFAppState =
+                                                                          .cPFAppState =
                                                                       getJsonField(
                                                                     (_model.aPICriarUser
                                                                             ?.jsonBody ??
@@ -1877,7 +1878,7 @@ class _CriarUserWidgetState extends State<CriarUserWidget>
                                                                     r'''$.documento''',
                                                                   ).toString();
                                                                   FFAppState()
-                                                                      .EmailAppState = '';
+                                                                      .emailAppState = '';
                                                                   await showDialog(
                                                                     context:
                                                                         context,
@@ -1887,7 +1888,7 @@ class _CriarUserWidgetState extends State<CriarUserWidget>
                                                                         title: const Text(
                                                                             'Bem Vindo(a)!'),
                                                                         content:
-                                                                            Text(FFAppState().NomeAppState),
+                                                                            Text(FFAppState().nomeAppState),
                                                                         actions: [
                                                                           TextButton(
                                                                             onPressed: () =>
@@ -1937,8 +1938,9 @@ class _CriarUserWidgetState extends State<CriarUserWidget>
                                                                   FFButtonOptions(
                                                                 width: 200.0,
                                                                 height: 44.0,
-                                                                padding: const EdgeInsetsDirectional
-                                                                    .fromSTEB(
+                                                                padding:
+                                                                    const EdgeInsetsDirectional
+                                                                        .fromSTEB(
                                                                         24.0,
                                                                         0.0,
                                                                         24.0,
@@ -1946,10 +1948,10 @@ class _CriarUserWidgetState extends State<CriarUserWidget>
                                                                 iconPadding:
                                                                     const EdgeInsetsDirectional
                                                                         .fromSTEB(
-                                                                            0.0,
-                                                                            0.0,
-                                                                            0.0,
-                                                                            0.0),
+                                                                        0.0,
+                                                                        0.0,
+                                                                        0.0,
+                                                                        0.0),
                                                                 color: const Color(
                                                                     0xE91881F6),
                                                                 textStyle: FlutterFlowTheme.of(
@@ -1975,8 +1977,9 @@ class _CriarUserWidgetState extends State<CriarUserWidget>
                                                                     BorderRadius
                                                                         .circular(
                                                                             40.0),
-                                                                hoverColor: const Color(
-                                                                    0xFF39D271),
+                                                                hoverColor:
+                                                                    const Color(
+                                                                        0xFF39D271),
                                                               ),
                                                             ),
                                                           ),
@@ -1995,17 +1998,17 @@ class _CriarUserWidgetState extends State<CriarUserWidget>
                                                               padding:
                                                                   const EdgeInsetsDirectional
                                                                       .fromSTEB(
-                                                                          24.0,
-                                                                          0.0,
-                                                                          24.0,
-                                                                          0.0),
+                                                                      24.0,
+                                                                      0.0,
+                                                                      24.0,
+                                                                      0.0),
                                                               iconPadding:
                                                                   const EdgeInsetsDirectional
                                                                       .fromSTEB(
-                                                                          0.0,
-                                                                          0.0,
-                                                                          0.0,
-                                                                          0.0),
+                                                                      0.0,
+                                                                      0.0,
+                                                                      0.0,
+                                                                      0.0),
                                                               color: const Color(
                                                                   0xFF39D271),
                                                               textStyle:

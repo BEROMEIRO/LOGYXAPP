@@ -1,5 +1,4 @@
 import 'package:rxdart/rxdart.dart';
-
 import '/backend/schema/structs/index.dart';
 import 'custom_auth_manager.dart';
 
