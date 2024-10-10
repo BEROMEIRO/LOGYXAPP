@@ -1,3 +1,5 @@
+/*import 'package:flutter/services.dart';*/
+
 import '/auth/custom_auth/auth_util.dart';
 import '/backend/api_requests/api_calls.dart';
 import '/backend/schema/structs/index.dart';
@@ -1056,6 +1058,7 @@ class _CriarUserWidgetState extends State<CriarUserWidget>
                                                                   TextFormField(
                                                                 controller: _model
                                                                     .cPFTxtFieldTextController,
+                                                                maxLength: 14,
                                                                 focusNode: _model
                                                                     .cPFTxtFieldFocusNode,
                                                                 onChanged: (_) =>
@@ -1209,6 +1212,9 @@ class _CriarUserWidgetState extends State<CriarUserWidget>
                                                                           FontWeight
                                                                               .w500,
                                                                     ),
+                                                                keyboardType:
+                                                                    TextInputType
+                                                                        .text,
                                                                 validator: _model
                                                                     .cPFTxtFieldTextControllerValidator
                                                                     .asValidator(
@@ -1740,6 +1746,13 @@ class _CriarUserWidgetState extends State<CriarUserWidget>
                                                                         .validate()) {
                                                                   return;
                                                                 }
+                                                                // Obtém o CPF sem formatação (apenas os números)
+                                                                /*String
+                                                                    cpfSemMascara =
+                                                                    _model
+                                                                        .cPFTxtFieldMask
+                                                                        .getUnmaskedText();*/
+
                                                                 _model.aPICriarUser =
                                                                     await APICriaOUsuarioCall
                                                                         .call(
@@ -1766,7 +1779,7 @@ class _CriarUserWidgetState extends State<CriarUserWidget>
                                                                       .text,
                                                                   documento: _model
                                                                       .cPFTxtFieldTextController
-                                                                      .text,
+                                                                      .text, // Remove o hífen,
                                                                 );
 
                                                                 if ((_model
@@ -1832,6 +1845,7 @@ class _CriarUserWidgetState extends State<CriarUserWidget>
                                                                       ).toString(),
                                                                     ),
                                                                   );
+
                                                                   FFAppState()
                                                                           .nomeAppState =
                                                                       getJsonField(

@@ -3,6 +3,7 @@ import '/flutter_flow/flutter_flow_util.dart';
 import 'criar_user_widget.dart' show CriarUserWidget;
 import 'package:flutter/material.dart';
 import 'package:mask_text_input_formatter/mask_text_input_formatter.dart';
+// import 'package:flutter/services.dart';
 
 class CriarUserModel extends FlutterFlowModel<CriarUserWidget> {
   ///  State fields for stateful widgets in this page.
@@ -85,16 +86,58 @@ class CriarUserModel extends FlutterFlowModel<CriarUserWidget> {
   TextEditingController? cPFTxtFieldTextController;
   final cPFTxtFieldMask = MaskTextInputFormatter(mask: '###.###.###-##');
   String? Function(BuildContext, String?)? cPFTxtFieldTextControllerValidator;
+
   String? _cPFTxtFieldTextControllerValidator(
       BuildContext context, String? val) {
     if (val == null || val.isEmpty) {
       return 'Campo obrigatório';
     }
 
-    if (!RegExp('^\\d{3}\\.\\d{3}\\.\\d{3}\\-\\d{2}\$').hasMatch(val)) {
-      return 'CPF inválido!';
+    // if (!RegExp('^\\d{3}\\.\\d{3}\\.\\d{3}\\-\\d{2}\$').hasMatch(val)) {
+    //   return 'CPF inválido!';
+    // }
+
+    // Remove caracteres não numéricos (se necessário para uso posterior)
+    String cpf = val.replaceAll(RegExp(r'\D'), '');
+
+    // Se necessário, adicione outras validações aqui, caso você queira
+    // Verifica se o CPF contém 11 dígitos e se não são todos iguais
+    if (cpf.length != 11 || List.filled(11, cpf[0]).join() == cpf) {
+      return 'CPF inválido!'; // CPF com todos os dígitos iguais ou com menos de 11 dígitos
     }
-    return null;
+
+    // Lógica de validação dos dígitos verificadores
+    // int sum = 0;
+    // int remainder;
+
+    // for (int i = 1; i <= 9; i++) {
+    //   sum += int.parse(cpf[i - 1]) * (11 - i);
+    // }
+
+    // remainder = (sum * 10) % 11;
+    // if (remainder == 10 || remainder == 11) {
+    //   remainder = 0;
+    // }
+    // if (remainder != int.parse(cpf[9])) {
+    //   return 'CPF inválido!'; // Primeiro dígito verificador inválido
+    // }
+
+    // sum = 0;
+    // for (int i = 1; i <= 10; i++) {
+    //   sum += int.parse(cpf[i - 1]) * (12 - i);
+    // }
+
+    // remainder = (sum * 10) % 11;
+    // if (remainder == 10 || remainder == 11) {
+    //   remainder = 0;
+    // }
+    // if (remainder != int.parse(cpf[10])) {
+    //   return 'CPF inválido!'; // Segundo dígito verificador inválido
+    // }
+
+    // Apenas queremos manter o formato correto por enquanto.
+
+    return null; // CPF válido
   }
 
   // State field(s) for Unidade_txt_field widget.
