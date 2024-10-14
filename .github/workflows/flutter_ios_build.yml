@@ -13,25 +13,25 @@ jobs:
     runs-on: macos-latest
 
     steps:
-    - name: Checkout code
-      uses: actions/checkout@v2
+      - name: Checkout code
+        uses: actions/checkout@v3
 
-    - name: Set up Flutter
-      uses: subosito/flutter-action@v2
-      with:
-        flutter-version: '3.0.0'
+      - name: Set up Flutter
+        uses: subosito/flutter-action@v3
+        with:
+          flutter-version: '3.24.3'  # Use a versão que você está utilizando
 
-    - name: Install CocoaPods dependencies
-      run: |
-        flutter pub get
-        cd ios
-        pod install
+      - name: Install CocoaPods dependencies
+        run: |
+          flutter pub get
+          cd ios
+          pod install
 
-    - name: Build iOS .ipa file
-      run: flutter build ios --release --no-codesign
+      - name: Build iOS .ipa file
+        run: flutter build ipa --no-codesign
 
-    - name: Upload build artifacts
-      uses: actions/upload-artifact@v2
-      with:
-        name: iOS Build
-        path: build/ios/iphoneos/*.ipa
+      - name: Upload build artifacts
+        uses: actions/upload-artifact@v4  # Atualizado para a versão v4
+        with:
+          name: iOS Build
+          path: build/ios/ipa/*.ipa  # Atualizado para o caminho correto
