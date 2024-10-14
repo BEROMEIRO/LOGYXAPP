@@ -190,45 +190,51 @@ class _OsWidgetState extends State<OsWidget> {
                                             ),
                                       ),
                                     ),
-                                    Row(
-                                      mainAxisSize: MainAxisSize.max,
-                                      children: [
-                                        Padding(
-                                          padding: const EdgeInsetsDirectional
-                                              .fromSTEB(0.0, 0.0, 0.0, 5.0),
-                                          child: Text(
-                                            'Ordem de Serviço:',
-                                            style: FlutterFlowTheme.of(context)
-                                                .bodyMedium
-                                                .override(
-                                                  fontFamily: 'Readex Pro',
-                                                  color: FlutterFlowTheme.of(
-                                                          context)
-                                                      .alternate,
-                                                  letterSpacing: 0.0,
-                                                ),
-                                          ),
-                                        ),
-                                        Padding(
-                                          padding: const EdgeInsetsDirectional
-                                              .fromSTEB(5.0, 0.0, 0.0, 5.0),
-                                          child: Text(
-                                            valueOrDefault<String>(
-                                              widget.parOS,
-                                              'os',
+                                    SingleChildScrollView(
+                                      scrollDirection: Axis.horizontal,
+                                      child: Row(
+                                        mainAxisSize: MainAxisSize.max,
+                                        children: [
+                                          Padding(
+                                            padding: const EdgeInsetsDirectional
+                                                .fromSTEB(0.0, 0.0, 0.0, 5.0),
+                                            child: Text(
+                                              'Ordem de Serviço:',
+                                              style: FlutterFlowTheme.of(
+                                                      context)
+                                                  .bodyMedium
+                                                  .override(
+                                                    fontFamily: 'Readex Pro',
+                                                    color: FlutterFlowTheme.of(
+                                                            context)
+                                                        .alternate,
+                                                    letterSpacing: 0.0,
+                                                  ),
                                             ),
-                                            style: FlutterFlowTheme.of(context)
-                                                .bodyMedium
-                                                .override(
-                                                  fontFamily: 'Readex Pro',
-                                                  color: FlutterFlowTheme.of(
-                                                          context)
-                                                      .alternate,
-                                                  letterSpacing: 0.0,
-                                                ),
                                           ),
-                                        ),
-                                      ],
+                                          Padding(
+                                            padding: const EdgeInsetsDirectional
+                                                .fromSTEB(5.0, 0.0, 0.0, 5.0),
+                                            child: Text(
+                                              valueOrDefault<String>(
+                                                widget.parOS,
+                                                'os',
+                                              ),
+                                              style: FlutterFlowTheme.of(
+                                                      context)
+                                                  .bodyMedium
+                                                  .override(
+                                                    fontFamily: 'Readex Pro',
+                                                    color: FlutterFlowTheme.of(
+                                                            context)
+                                                        .alternate,
+                                                    fontSize: 11.0,
+                                                    letterSpacing: 0.0,
+                                                  ),
+                                            ),
+                                          ),
+                                        ],
+                                      ),
                                     ),
                                     Row(
                                       mainAxisSize: MainAxisSize.max,
@@ -264,6 +270,7 @@ class _OsWidgetState extends State<OsWidget> {
                                                   color: FlutterFlowTheme.of(
                                                           context)
                                                       .alternate,
+                                                  fontSize: 11.0,
                                                   letterSpacing: 0.0,
                                                 ),
                                           ),
@@ -304,6 +311,7 @@ class _OsWidgetState extends State<OsWidget> {
                                                   color: FlutterFlowTheme.of(
                                                           context)
                                                       .alternate,
+                                                  fontSize: 11.0,
                                                   letterSpacing: 0.0,
                                                 ),
                                           ),
@@ -344,6 +352,7 @@ class _OsWidgetState extends State<OsWidget> {
                                                   color: FlutterFlowTheme.of(
                                                           context)
                                                       .alternate,
+                                                  fontSize: 11.0,
                                                   letterSpacing: 0.0,
                                                 ),
                                           ),
@@ -384,52 +393,59 @@ class _OsWidgetState extends State<OsWidget> {
                                                   color: FlutterFlowTheme.of(
                                                           context)
                                                       .alternate,
+                                                  fontSize: 11.0,
                                                   letterSpacing: 0.0,
                                                 ),
                                           ),
                                         ),
                                       ],
                                     ),
-                                    Row(
-                                      mainAxisSize: MainAxisSize.max,
-                                      children: [
-                                        Padding(
-                                          padding: const EdgeInsetsDirectional
-                                              .fromSTEB(0.0, 0.0, 0.0, 5.0),
-                                          child: Text(
-                                            'Ocorrência:',
-                                            style: FlutterFlowTheme.of(context)
-                                                .bodyMedium
-                                                .override(
-                                                  fontFamily: 'Readex Pro',
-                                                  color: FlutterFlowTheme.of(
-                                                          context)
-                                                      .alternate,
-                                                  letterSpacing: 0.0,
-                                                ),
-                                          ),
-                                        ),
-                                        Padding(
-                                          padding: const EdgeInsetsDirectional
-                                              .fromSTEB(5.0, 0.0, 0.0, 5.0),
-                                          child: Text(
-                                            valueOrDefault<String>(
-                                              widget.parOcorrencia,
-                                              'Ocorrência',
+                                    SingleChildScrollView(
+                                      scrollDirection: Axis.horizontal,
+                                      child: Row(
+                                        mainAxisSize: MainAxisSize.max,
+                                        children: [
+                                          Padding(
+                                            padding: const EdgeInsetsDirectional
+                                                .fromSTEB(0.0, 0.0, 0.0, 5.0),
+                                            child: Text(
+                                              'Ocorrência:',
+                                              style: FlutterFlowTheme.of(
+                                                      context)
+                                                  .bodyMedium
+                                                  .override(
+                                                    fontFamily: 'Readex Pro',
+                                                    color: FlutterFlowTheme.of(
+                                                            context)
+                                                        .alternate,
+                                                    letterSpacing: 0.0,
+                                                  ),
                                             ),
-                                            textAlign: TextAlign.start,
-                                            style: FlutterFlowTheme.of(context)
-                                                .bodyMedium
-                                                .override(
-                                                  fontFamily: 'Readex Pro',
-                                                  color: FlutterFlowTheme.of(
-                                                          context)
-                                                      .alternate,
-                                                  letterSpacing: 0.0,
-                                                ),
                                           ),
-                                        ),
-                                      ],
+                                          Padding(
+                                            padding: const EdgeInsetsDirectional
+                                                .fromSTEB(5.0, 0.0, 0.0, 5.0),
+                                            child: Text(
+                                              valueOrDefault<String>(
+                                                widget.parOcorrencia,
+                                                'Ocorrência',
+                                              ),
+                                              textAlign: TextAlign.start,
+                                              style: FlutterFlowTheme.of(
+                                                      context)
+                                                  .bodyMedium
+                                                  .override(
+                                                    fontFamily: 'Readex Pro',
+                                                    color: FlutterFlowTheme.of(
+                                                            context)
+                                                        .alternate,
+                                                    fontSize: 11.0,
+                                                    letterSpacing: 0.0,
+                                                  ),
+                                            ),
+                                          ),
+                                        ],
+                                      ),
                                     ),
                                   ],
                                 ),

@@ -109,7 +109,7 @@ class _HomeWidgetState extends State<HomeWidget> {
                                       .titleSmall
                                       .override(
                                         fontFamily: 'Readex Pro',
-                                        fontSize: 24.0,
+                                        fontSize: 20.0,
                                         letterSpacing: 0.0,
                                       ),
                                 ),
@@ -132,7 +132,7 @@ class _HomeWidgetState extends State<HomeWidget> {
                                       .titleSmall
                                       .override(
                                         fontFamily: 'Readex Pro',
-                                        fontSize: 14.0,
+                                        fontSize: 12.0,
                                         letterSpacing: 0.0,
                                         fontWeight: FontWeight.normal,
                                       ),

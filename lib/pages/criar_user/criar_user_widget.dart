@@ -1,5 +1,4 @@
 /*import 'package:flutter/services.dart';*/
-
 import '/auth/custom_auth/auth_util.dart';
 import '/backend/api_requests/api_calls.dart';
 import '/backend/schema/structs/index.dart';
@@ -1779,7 +1778,7 @@ class _CriarUserWidgetState extends State<CriarUserWidget>
                                                                       .text,
                                                                   documento: _model
                                                                       .cPFTxtFieldTextController
-                                                                      .text, // Remove o hífen,
+                                                                      .text,
                                                                 );
 
                                                                 if ((_model

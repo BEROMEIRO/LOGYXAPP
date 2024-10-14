@@ -412,12 +412,22 @@ class _ReaberturaWidgetState extends State<ReaberturaWidget> {
                                       return Column(
                                         mainAxisSize: MainAxisSize.max,
                                         children: [
-                                          ListaOSsWidget(
-                                            key: Key(
-                                                'Keyope_${listagemOSReabertaIndex}_of_${listagemOSReaberta.length}'),
-                                            numOS: listagemOSReabertaItem,
-                                            botaoExcluir:
-                                                listagemOSReabertaIndex,
+                                          wrapWithModel(
+                                            model:
+                                                _model.listaOSsModels.getModel(
+                                              listagemOSReabertaItem,
+                                              listagemOSReabertaIndex,
+                                            ),
+                                            updateCallback: () =>
+                                                safeSetState(() {}),
+                                            child: ListaOSsWidget(
+                                              key: Key(
+                                                'Keyope_$listagemOSReabertaItem',
+                                              ),
+                                              numOS: listagemOSReabertaItem,
+                                              botaoExcluir:
+                                                  listagemOSReabertaIndex,
+                                            ),
                                           ),
                                         ],
                                       );
@@ -524,6 +534,12 @@ class _ReaberturaWidgetState extends State<ReaberturaWidget> {
                                           safeSetState(() =>
                                               _model.dropDProjetoValue = val);
                                           var shouldSetState = false;
+
+                                          safeSetState(() {
+                                            _model.dropDTipoValueController
+                                                ?.reset();
+                                          });
+                                          FFAppState().tipo = '';
                                           _model.apiProjetoResp =
                                               await APIProjetoCall.call();
 
@@ -758,13 +774,9 @@ class _ReaberturaWidgetState extends State<ReaberturaWidget> {
                                                   r'''$[:].projeto''',
                                                 ) ==
                                                 null)) {
-                                          return getJsonField(
-                                            (_model.apiProjetoResp?.jsonBody ??
-                                                ''),
-                                            r'''$[:].projeto''',
-                                          ).toString();
+                                          return FFAppState().projeto;
                                         } else {
-                                          return widget.project;
+                                          return _model.dropDProjetoValue;
                                         }
                                       }(),
                                     ),

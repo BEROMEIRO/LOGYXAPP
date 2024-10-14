@@ -1,3 +1,5 @@
+import 'package:logyxapp/components/lista_o_ss_model.dart';
+
 import '/backend/api_requests/api_calls.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/form_field_controller.dart';
@@ -25,6 +27,7 @@ class ReaberturaModel extends FlutterFlowModel<ReaberturaWidget> {
     return null;
   }
 
+  late FlutterFlowDynamicModels<ListaOSsModel> listaOSsModels;
   // State field(s) for DropDProjeto widget.
   String? dropDProjetoValue;
   FormFieldController<String>? dropDProjetoValueController;
@@ -58,6 +61,7 @@ class ReaberturaModel extends FlutterFlowModel<ReaberturaWidget> {
   void initState(BuildContext context) {
     osControllerReaberturaTxtFieldTextControllerValidator =
         _osControllerReaberturaTxtFieldTextControllerValidator;
+    listaOSsModels = FlutterFlowDynamicModels(() => ListaOSsModel());
   }
 
   @override
@@ -65,6 +69,7 @@ class ReaberturaModel extends FlutterFlowModel<ReaberturaWidget> {
     osControllerReaberturaTxtFieldFocusNode?.dispose();
     osControllerReaberturaTxtFieldTextController?.dispose();
 
+    listaOSsModels.dispose();
     textFieldDescricaoFocusNode?.dispose();
     textFieldDescricaoTextController?.dispose();
   }
