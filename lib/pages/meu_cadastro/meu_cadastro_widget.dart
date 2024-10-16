@@ -189,7 +189,7 @@ class _MeuCadastroWidgetState extends State<MeuCadastroWidget>
                                               )
                                             ],
                                             borderRadius:
-                                                BorderRadius.circular(24.0),
+                                                BorderRadius.circular(18.0),
                                             border: Border.all(
                                               color: const Color(0xFFF1F4F8),
                                               width: 2.0,
@@ -279,7 +279,7 @@ class _MeuCadastroWidgetState extends State<MeuCadastroWidget>
                                                                         5.0,
                                                                         15.0),
                                                                 child: Text(
-                                                                  'Por favor preencha os campos abaixo',
+                                                                  'Dados de cadastro',
                                                                   textAlign:
                                                                       TextAlign
                                                                           .center,
@@ -432,7 +432,7 @@ class _MeuCadastroWidgetState extends State<MeuCadastroWidget>
                                                                               .white,
                                                                       contentPadding: const EdgeInsets
                                                                           .all(
-                                                                          24.0),
+                                                                          18.0),
                                                                     ),
                                                                     style: FlutterFlowTheme.of(
                                                                             context)
@@ -571,7 +571,7 @@ class _MeuCadastroWidgetState extends State<MeuCadastroWidget>
                                                                               .white,
                                                                       contentPadding: const EdgeInsets
                                                                           .all(
-                                                                          24.0),
+                                                                          18.0),
                                                                     ),
                                                                     style: FlutterFlowTheme.of(
                                                                             context)
@@ -706,7 +706,7 @@ class _MeuCadastroWidgetState extends State<MeuCadastroWidget>
                                                                               .white,
                                                                       contentPadding: const EdgeInsets
                                                                           .all(
-                                                                          24.0),
+                                                                          18.0),
                                                                     ),
                                                                     style: FlutterFlowTheme.of(
                                                                             context)
@@ -856,7 +856,7 @@ class _MeuCadastroWidgetState extends State<MeuCadastroWidget>
                                                                               .white,
                                                                       contentPadding: const EdgeInsets
                                                                           .all(
-                                                                          24.0),
+                                                                          18.0),
                                                                     ),
                                                                     style: FlutterFlowTheme.of(
                                                                             context)
@@ -991,7 +991,7 @@ class _MeuCadastroWidgetState extends State<MeuCadastroWidget>
                                                                               .white,
                                                                       contentPadding: const EdgeInsets
                                                                           .all(
-                                                                          24.0),
+                                                                          18.0),
                                                                     ),
                                                                     style: FlutterFlowTheme.of(
                                                                             context)
@@ -1127,7 +1127,7 @@ class _MeuCadastroWidgetState extends State<MeuCadastroWidget>
                                                                               .white,
                                                                       contentPadding: const EdgeInsets
                                                                           .all(
-                                                                          24.0),
+                                                                          18.0),
                                                                     ),
                                                                     style: FlutterFlowTheme.of(
                                                                             context)
@@ -1176,9 +1176,9 @@ class _MeuCadastroWidgetState extends State<MeuCadastroWidget>
                                                                         44.0,
                                                                     padding: const EdgeInsetsDirectional
                                                                         .fromSTEB(
-                                                                        24.0,
+                                                                        18.0,
                                                                         0.0,
-                                                                        24.0,
+                                                                        18.0,
                                                                         0.0),
                                                                     iconPadding:
                                                                         const EdgeInsetsDirectional
@@ -1232,9 +1232,9 @@ class _MeuCadastroWidgetState extends State<MeuCadastroWidget>
                                                                   padding:
                                                                       const EdgeInsetsDirectional
                                                                           .fromSTEB(
-                                                                          24.0,
+                                                                          18.0,
                                                                           0.0,
-                                                                          24.0,
+                                                                          18.0,
                                                                           0.0),
                                                                   iconPadding:
                                                                       const EdgeInsetsDirectional

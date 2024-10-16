@@ -190,7 +190,7 @@ class _TokenSolicitadoUserNameWidgetState
                                             )
                                           ],
                                           borderRadius:
-                                              BorderRadius.circular(24.0),
+                                              BorderRadius.circular(18.0),
                                           border: Border.all(
                                             color: const Color(0xFFF1F4F8),
                                             width: 2.0,
@@ -424,7 +424,7 @@ class _TokenSolicitadoUserNameWidgetState
                                                                               .white,
                                                                       contentPadding: const EdgeInsets
                                                                           .all(
-                                                                          24.0),
+                                                                          18.0),
                                                                       suffixIcon: _model
                                                                               .nomeTxtFieldTextController!
                                                                               .text
@@ -566,7 +566,7 @@ class _TokenSolicitadoUserNameWidgetState
                                                                                 FFButtonOptions(
                                                                               width: 200.0,
                                                                               height: 44.0,
-                                                                              padding: const EdgeInsetsDirectional.fromSTEB(24.0, 0.0, 24.0, 0.0),
+                                                                              padding: const EdgeInsetsDirectional.fromSTEB(18.0, 0.0, 18.0, 0.0),
                                                                               iconPadding: const EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
                                                                               color: const Color(0xFF39D271),
                                                                               textStyle: FlutterFlowTheme.of(context).titleSmall.override(
@@ -602,7 +602,7 @@ class _TokenSolicitadoUserNameWidgetState
                                                                                 FFButtonOptions(
                                                                               width: 200.0,
                                                                               height: 44.0,
-                                                                              padding: const EdgeInsetsDirectional.fromSTEB(24.0, 0.0, 24.0, 0.0),
+                                                                              padding: const EdgeInsetsDirectional.fromSTEB(18.0, 0.0, 18.0, 0.0),
                                                                               iconPadding: const EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
                                                                               color: FlutterFlowTheme.of(context).tertiary,
                                                                               textStyle: FlutterFlowTheme.of(context).titleSmall.override(

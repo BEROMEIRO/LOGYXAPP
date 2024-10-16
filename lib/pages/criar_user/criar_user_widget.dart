@@ -456,7 +456,7 @@ class _CriarUserWidgetState extends State<CriarUserWidget>
                                                                   contentPadding:
                                                                       const EdgeInsets
                                                                           .all(
-                                                                          24.0),
+                                                                          18.0),
                                                                   suffixIcon: _model
                                                                           .telefoneTxtFieldTextController!
                                                                           .text
@@ -638,7 +638,7 @@ class _CriarUserWidgetState extends State<CriarUserWidget>
                                                                   contentPadding:
                                                                       const EdgeInsets
                                                                           .all(
-                                                                          24.0),
+                                                                          18.0),
                                                                   suffixIcon: _model
                                                                           .userNameTxtFieldTextController!
                                                                           .text
@@ -816,7 +816,7 @@ class _CriarUserWidgetState extends State<CriarUserWidget>
                                                                   contentPadding:
                                                                       const EdgeInsets
                                                                           .all(
-                                                                          24.0),
+                                                                          18.0),
                                                                   suffixIcon: _model
                                                                           .nomeTxtFieldTextController!
                                                                           .text
@@ -994,7 +994,7 @@ class _CriarUserWidgetState extends State<CriarUserWidget>
                                                                   contentPadding:
                                                                       const EdgeInsets
                                                                           .all(
-                                                                          24.0),
+                                                                          18.0),
                                                                   suffixIcon: _model
                                                                           .emailTxtfieldTextController!
                                                                           .text
@@ -1173,7 +1173,7 @@ class _CriarUserWidgetState extends State<CriarUserWidget>
                                                                   contentPadding:
                                                                       const EdgeInsets
                                                                           .all(
-                                                                          24.0),
+                                                                          18.0),
                                                                   suffixIcon: _model
                                                                           .cPFTxtFieldTextController!
                                                                           .text
@@ -1355,7 +1355,7 @@ class _CriarUserWidgetState extends State<CriarUserWidget>
                                                                   contentPadding:
                                                                       const EdgeInsets
                                                                           .all(
-                                                                          24.0),
+                                                                          18.0),
                                                                   suffixIcon: _model
                                                                           .unidadeTxtFieldTextController!
                                                                           .text
@@ -1517,7 +1517,7 @@ class _CriarUserWidgetState extends State<CriarUserWidget>
                                                                   contentPadding:
                                                                       const EdgeInsets
                                                                           .all(
-                                                                          24.0),
+                                                                          18.0),
                                                                   suffixIcon:
                                                                       InkWell(
                                                                     onTap: () =>
@@ -1537,7 +1537,7 @@ class _CriarUserWidgetState extends State<CriarUserWidget>
                                                                           : Icons
                                                                               .visibility_off_outlined,
                                                                       size:
-                                                                          24.0,
+                                                                          18.0,
                                                                     ),
                                                                   ),
                                                                 ),
@@ -1679,7 +1679,7 @@ class _CriarUserWidgetState extends State<CriarUserWidget>
                                                                   contentPadding:
                                                                       const EdgeInsets
                                                                           .all(
-                                                                          24.0),
+                                                                          18.0),
                                                                   suffixIcon:
                                                                       InkWell(
                                                                     onTap: () =>
@@ -1699,7 +1699,7 @@ class _CriarUserWidgetState extends State<CriarUserWidget>
                                                                           : Icons
                                                                               .visibility_off_outlined,
                                                                       size:
-                                                                          24.0,
+                                                                          18.0,
                                                                     ),
                                                                   ),
                                                                 ),
@@ -1954,9 +1954,9 @@ class _CriarUserWidgetState extends State<CriarUserWidget>
                                                                 padding:
                                                                     const EdgeInsetsDirectional
                                                                         .fromSTEB(
-                                                                        24.0,
+                                                                        18.0,
                                                                         0.0,
-                                                                        24.0,
+                                                                        18.0,
                                                                         0.0),
                                                                 iconPadding:
                                                                     const EdgeInsetsDirectional
@@ -2011,9 +2011,9 @@ class _CriarUserWidgetState extends State<CriarUserWidget>
                                                               padding:
                                                                   const EdgeInsetsDirectional
                                                                       .fromSTEB(
-                                                                      24.0,
+                                                                      18.0,
                                                                       0.0,
-                                                                      24.0,
+                                                                      18.0,
                                                                       0.0),
                                                               iconPadding:
                                                                   const EdgeInsetsDirectional

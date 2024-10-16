@@ -1,4 +1,3 @@
-import '/auth/custom_auth/auth_util.dart';
 import '/backend/api_requests/api_calls.dart';
 import '/flutter_flow/flutter_flow_animations.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
@@ -6,27 +5,20 @@ import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
 import 'package:easy_debounce/easy_debounce.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/scheduler.dart';
 import 'package:flutter_animate/flutter_animate.dart';
-import 'package:provider/provider.dart';
-import 'token_verificado_model.dart';
-export 'token_verificado_model.dart';
+import 'excluir_cadastro_model.dart';
+export 'excluir_cadastro_model.dart';
 
-class TokenVerificadoWidget extends StatefulWidget {
-  const TokenVerificadoWidget({
-    super.key,
-    required this.nomedoAppState,
-  });
-
-  final String? nomedoAppState;
+class ExcluirCadastroWidget extends StatefulWidget {
+  const ExcluirCadastroWidget({super.key});
 
   @override
-  State<TokenVerificadoWidget> createState() => _TokenVerificadoWidgetState();
+  State<ExcluirCadastroWidget> createState() => _ExcluirCadastroWidgetState();
 }
 
-class _TokenVerificadoWidgetState extends State<TokenVerificadoWidget>
+class _ExcluirCadastroWidgetState extends State<ExcluirCadastroWidget>
     with TickerProviderStateMixin {
-  late TokenVerificadoModel _model;
+  late ExcluirCadastroModel _model;
 
   final scaffoldKey = GlobalKey<ScaffoldState>();
 
@@ -35,38 +27,18 @@ class _TokenVerificadoWidgetState extends State<TokenVerificadoWidget>
   @override
   void initState() {
     super.initState();
-    _model = createModel(context, () => TokenVerificadoModel());
-
-    // On page load action.
-    SchedulerBinding.instance.addPostFrameCallback((_) async {
-      if ((currentUserData?.uid != null && currentUserData?.uid != '') ||
-          (FFAppState().pWDAppState != currentUserData?.pwd)) {
-        FFAppState().uidAppState = currentUserData!.uid;
-        FFAppState().telefoneAppState = currentUserData!.phone;
-        FFAppState().userNameAppState = currentUserData!.username;
-        FFAppState().unidadeAppState = currentUserData!.codBase;
-        FFAppState().cPFAppState = currentUserData!.documento;
-        FFAppState().emailAppState = currentUserData!.email;
-        FFAppState().nomeAppState = currentUserData!.name;
-        safeSetState(() {});
-
-        context.pushNamed('Home');
-      } else {
-        return;
-      }
-    });
+    _model = createModel(context, () => ExcluirCadastroModel());
 
     _model.tabBarController = TabController(
       vsync: this,
       length: 1,
       initialIndex: 0,
     )..addListener(() => safeSetState(() {}));
-    _model.nomeTxtFieldTextController ??=
-        TextEditingController(text: FFAppState().userNameAppState);
-    _model.nomeTxtFieldFocusNode ??= FocusNode();
+    _model.userNameTxtFieldTextController ??= TextEditingController();
+    _model.userNameTxtFieldFocusNode ??= FocusNode();
 
-    _model.tokenTxtFieldTextController ??= TextEditingController();
-    _model.tokenTxtFieldFocusNode ??= FocusNode();
+    _model.senhaTxtFieldTextController ??= TextEditingController();
+    _model.senhaTxtFieldFocusNode ??= FocusNode();
 
     animationsMap.addAll({
       'containerOnPageLoadAnimation': AnimationInfo(
@@ -130,8 +102,6 @@ class _TokenVerificadoWidgetState extends State<TokenVerificadoWidget>
 
   @override
   Widget build(BuildContext context) {
-    context.watch<FFAppState>();
-
     return GestureDetector(
       onTap: () => FocusScope.of(context).unfocus(),
       child: WillPopScope(
@@ -161,7 +131,7 @@ class _TokenVerificadoWidgetState extends State<TokenVerificadoWidget>
                               alignment: const AlignmentDirectional(0.0, -1.0),
                               child: Padding(
                                 padding: const EdgeInsetsDirectional.fromSTEB(
-                                    0.0, 50.0, 0.0, 0.0),
+                                    0.0, 80.0, 0.0, 0.0),
                                 child: SingleChildScrollView(
                                   primary: false,
                                   child: Column(
@@ -174,8 +144,8 @@ class _TokenVerificadoWidgetState extends State<TokenVerificadoWidget>
                                           width: double.infinity,
                                           height: MediaQuery.sizeOf(context)
                                                       .width >=
-                                                  768.0
-                                              ? 530.0
+                                                  800.0
+                                              ? 600.0
                                               : 630.0,
                                           constraints: const BoxConstraints(
                                             maxWidth: 570.0,
@@ -243,7 +213,7 @@ class _TokenVerificadoWidgetState extends State<TokenVerificadoWidget>
                                                   indicatorWeight: 3.0,
                                                   tabs: const [
                                                     Tab(
-                                                      text: 'Login',
+                                                      text: 'Excluir Cadastro',
                                                     ),
                                                   ],
                                                   controller:
@@ -265,11 +235,8 @@ class _TokenVerificadoWidgetState extends State<TokenVerificadoWidget>
                                                       child: Padding(
                                                         padding:
                                                             const EdgeInsetsDirectional
-                                                                .fromSTEB(
-                                                                12.0,
-                                                                55.0,
-                                                                12.0,
-                                                                0.0),
+                                                                .fromSTEB(12.0,
+                                                                5.0, 12.0, 0.0),
                                                         child:
                                                             SingleChildScrollView(
                                                           child: Column(
@@ -290,9 +257,9 @@ class _TokenVerificadoWidgetState extends State<TokenVerificadoWidget>
                                                                         5.0,
                                                                         0.0,
                                                                         5.0,
-                                                                        8.0),
+                                                                        15.0),
                                                                 child: Text(
-                                                                  'Insira o código enviado',
+                                                                  'Por favor preencha os campos abaixo',
                                                                   textAlign:
                                                                       TextAlign
                                                                           .center,
@@ -305,7 +272,7 @@ class _TokenVerificadoWidgetState extends State<TokenVerificadoWidget>
                                                                         color: const Color(
                                                                             0xFF0D0D0D),
                                                                         fontSize:
-                                                                            20.0,
+                                                                            17.0,
                                                                         letterSpacing:
                                                                             0.0,
                                                                         fontWeight:
@@ -328,17 +295,17 @@ class _TokenVerificadoWidgetState extends State<TokenVerificadoWidget>
                                                                       TextFormField(
                                                                     controller:
                                                                         _model
-                                                                            .nomeTxtFieldTextController,
+                                                                            .userNameTxtFieldTextController,
                                                                     focusNode:
                                                                         _model
-                                                                            .nomeTxtFieldFocusNode,
+                                                                            .userNameTxtFieldFocusNode,
                                                                     onChanged: (_) =>
                                                                         EasyDebounce
                                                                             .debounce(
-                                                                      '_model.nomeTxtFieldTextController',
+                                                                      '_model.userNameTxtFieldTextController',
                                                                       const Duration(
                                                                           milliseconds:
-                                                                              2000),
+                                                                              100),
                                                                       () => safeSetState(
                                                                           () {}),
                                                                     ),
@@ -351,14 +318,12 @@ class _TokenVerificadoWidgetState extends State<TokenVerificadoWidget>
                                                                     textInputAction:
                                                                         TextInputAction
                                                                             .next,
-                                                                    readOnly:
-                                                                        true,
                                                                     obscureText:
                                                                         false,
                                                                     decoration:
                                                                         InputDecoration(
                                                                       labelText:
-                                                                          'Nome',
+                                                                          'Nome de Usuário',
                                                                       labelStyle: FlutterFlowTheme.of(
                                                                               context)
                                                                           .labelLarge
@@ -375,7 +340,18 @@ class _TokenVerificadoWidgetState extends State<TokenVerificadoWidget>
                                                                                 FontWeight.w500,
                                                                           ),
                                                                       hintText:
-                                                                          'Nome de Usuário',
+                                                                          'Ex: João_Batista',
+                                                                      errorStyle: FlutterFlowTheme.of(
+                                                                              context)
+                                                                          .bodyMedium
+                                                                          .override(
+                                                                            fontFamily:
+                                                                                'Readex Pro',
+                                                                            color:
+                                                                                const Color(0xFFF50303),
+                                                                            letterSpacing:
+                                                                                0.0,
+                                                                          ),
                                                                       enabledBorder:
                                                                           OutlineInputBorder(
                                                                         borderSide:
@@ -433,12 +409,12 @@ class _TokenVerificadoWidgetState extends State<TokenVerificadoWidget>
                                                                           .all(
                                                                           18.0),
                                                                       suffixIcon: _model
-                                                                              .nomeTxtFieldTextController!
+                                                                              .userNameTxtFieldTextController!
                                                                               .text
                                                                               .isNotEmpty
                                                                           ? InkWell(
                                                                               onTap: () async {
-                                                                                _model.nomeTxtFieldTextController?.clear();
+                                                                                _model.userNameTxtFieldTextController?.clear();
                                                                                 safeSetState(() {});
                                                                               },
                                                                               child: const Icon(
@@ -468,7 +444,7 @@ class _TokenVerificadoWidgetState extends State<TokenVerificadoWidget>
                                                                         TextInputType
                                                                             .name,
                                                                     validator: _model
-                                                                        .nomeTxtFieldTextControllerValidator
+                                                                        .userNameTxtFieldTextControllerValidator
                                                                         .asValidator(
                                                                             context),
                                                                   ),
@@ -489,10 +465,10 @@ class _TokenVerificadoWidgetState extends State<TokenVerificadoWidget>
                                                                       TextFormField(
                                                                     controller:
                                                                         _model
-                                                                            .tokenTxtFieldTextController,
+                                                                            .senhaTxtFieldTextController,
                                                                     focusNode:
                                                                         _model
-                                                                            .tokenTxtFieldFocusNode,
+                                                                            .senhaTxtFieldFocusNode,
                                                                     autofocus:
                                                                         false,
                                                                     textInputAction:
@@ -500,11 +476,11 @@ class _TokenVerificadoWidgetState extends State<TokenVerificadoWidget>
                                                                             .done,
                                                                     obscureText:
                                                                         !_model
-                                                                            .tokenTxtFieldVisibility,
+                                                                            .senhaTxtFieldVisibility,
                                                                     decoration:
                                                                         InputDecoration(
                                                                       labelText:
-                                                                          'Código',
+                                                                          'Senha',
                                                                       labelStyle: FlutterFlowTheme.of(
                                                                               context)
                                                                           .labelLarge
@@ -518,8 +494,23 @@ class _TokenVerificadoWidgetState extends State<TokenVerificadoWidget>
                                                                             fontWeight:
                                                                                 FontWeight.w500,
                                                                           ),
+                                                                      alignLabelWithHint:
+                                                                          true,
                                                                       hintText:
-                                                                          'Insira o código aqui',
+                                                                          'Ex: Abc123!@#',
+                                                                      errorStyle: FlutterFlowTheme.of(
+                                                                              context)
+                                                                          .bodyMedium
+                                                                          .override(
+                                                                            fontFamily:
+                                                                                'Readex Pro',
+                                                                            color:
+                                                                                const Color(0xFFF50303),
+                                                                            fontSize:
+                                                                                10.0,
+                                                                            letterSpacing:
+                                                                                0.0,
+                                                                          ),
                                                                       enabledBorder:
                                                                           OutlineInputBorder(
                                                                         borderSide:
@@ -580,14 +571,14 @@ class _TokenVerificadoWidgetState extends State<TokenVerificadoWidget>
                                                                           InkWell(
                                                                         onTap: () =>
                                                                             safeSetState(
-                                                                          () => _model.tokenTxtFieldVisibility =
-                                                                              !_model.tokenTxtFieldVisibility,
+                                                                          () => _model.senhaTxtFieldVisibility =
+                                                                              !_model.senhaTxtFieldVisibility,
                                                                         ),
                                                                         focusNode:
                                                                             FocusNode(skipTraversal: true),
                                                                         child:
                                                                             Icon(
-                                                                          _model.tokenTxtFieldVisibility
+                                                                          _model.senhaTxtFieldVisibility
                                                                               ? Icons.visibility_outlined
                                                                               : Icons.visibility_off_outlined,
                                                                           size:
@@ -609,7 +600,7 @@ class _TokenVerificadoWidgetState extends State<TokenVerificadoWidget>
                                                                               FontWeight.w500,
                                                                         ),
                                                                     validator: _model
-                                                                        .tokenTxtFieldTextControllerValidator
+                                                                        .senhaTxtFieldTextControllerValidator
                                                                         .asValidator(
                                                                             context),
                                                                   ),
@@ -620,65 +611,104 @@ class _TokenVerificadoWidgetState extends State<TokenVerificadoWidget>
                                                                     const EdgeInsetsDirectional
                                                                         .fromSTEB(
                                                                         0.0,
-                                                                        20.0,
                                                                         0.0,
-                                                                        20.0),
+                                                                        0.0,
+                                                                        5.0),
                                                                 child:
                                                                     FFButtonWidget(
                                                                   onPressed:
                                                                       () async {
-                                                                    _model.validatokenresp =
-                                                                        await APIValidaTokenCall
-                                                                            .call(
-                                                                      username: _model
-                                                                          .nomeTxtFieldTextController
-                                                                          .text,
-                                                                      token: int.tryParse(_model
-                                                                          .tokenTxtFieldTextController
-                                                                          .text),
-                                                                    );
-
-                                                                    if ((_model
-                                                                            .validatokenresp
-                                                                            ?.succeeded ??
-                                                                        true)) {
-                                                                      FFAppState()
-                                                                              .uidAppState =
-                                                                          getJsonField(
-                                                                        (_model.validatokenresp?.jsonBody ??
-                                                                            ''),
-                                                                        r'''$.uid''',
-                                                                      ).toString();
-                                                                      safeSetState(
-                                                                          () {});
-
-                                                                      context.goNamed(
-                                                                          'Token-AlterandoSenha');
-                                                                    } else {
-                                                                      await showDialog(
-                                                                        context:
-                                                                            context,
-                                                                        builder:
-                                                                            (alertDialogContext) {
-                                                                          return AlertDialog(
-                                                                            content:
-                                                                                const Text('Token Inválido'),
-                                                                            actions: [
-                                                                              TextButton(
-                                                                                onPressed: () => Navigator.pop(alertDialogContext),
-                                                                                child: const Text('Ok'),
-                                                                              ),
-                                                                            ],
-                                                                          );
-                                                                        },
+                                                                    var shouldSetState =
+                                                                        false;
+                                                                    var confirmDialogResponse =
+                                                                        await showDialog<bool>(
+                                                                              context: context,
+                                                                              builder: (alertDialogContext) {
+                                                                                return AlertDialog(
+                                                                                  title: const Text('Atenção !!!'),
+                                                                                  content: const Text('Deseja mesmo excluir o cadastro??'),
+                                                                                  actions: [
+                                                                                    TextButton(
+                                                                                      onPressed: () => Navigator.pop(alertDialogContext, false),
+                                                                                      child: const Text('Cancelar'),
+                                                                                    ),
+                                                                                    TextButton(
+                                                                                      onPressed: () => Navigator.pop(alertDialogContext, true),
+                                                                                      child: const Text('Confirmar'),
+                                                                                    ),
+                                                                                  ],
+                                                                                );
+                                                                              },
+                                                                            ) ??
+                                                                            false;
+                                                                    if (confirmDialogResponse) {
+                                                                      _model.deletadoapi =
+                                                                          await APIDeletaUserCall
+                                                                              .call(
+                                                                        username: _model
+                                                                            .userNameTxtFieldTextController
+                                                                            .text,
+                                                                        password: _model
+                                                                            .senhaTxtFieldTextController
+                                                                            .text,
                                                                       );
+
+                                                                      shouldSetState =
+                                                                          true;
+                                                                      if ((_model
+                                                                              .deletadoapi
+                                                                              ?.succeeded ??
+                                                                          true)) {
+                                                                        await showDialog(
+                                                                          context:
+                                                                              context,
+                                                                          builder:
+                                                                              (alertDialogContext) {
+                                                                            return AlertDialog(
+                                                                              title: const Text('Usuário excluído!'),
+                                                                              content: const Text('Atenção, agora que o usuário foi excluído, irá ser necessário criar novo usuário!'),
+                                                                              actions: [
+                                                                                TextButton(
+                                                                                  onPressed: () => Navigator.pop(alertDialogContext),
+                                                                                  child: const Text('Ok'),
+                                                                                ),
+                                                                              ],
+                                                                            );
+                                                                          },
+                                                                        );
+
+                                                                        context.goNamed(
+                                                                            'Login');
+                                                                      } else {
+                                                                        await showDialog(
+                                                                          context:
+                                                                              context,
+                                                                          builder:
+                                                                              (alertDialogContext) {
+                                                                            return AlertDialog(
+                                                                              title: const Text('Atenção!!!'),
+                                                                              content: const Text('Usuário ou senha errados!!'),
+                                                                              actions: [
+                                                                                TextButton(
+                                                                                  onPressed: () => Navigator.pop(alertDialogContext),
+                                                                                  child: const Text('Ok'),
+                                                                                ),
+                                                                              ],
+                                                                            );
+                                                                          },
+                                                                        );
+                                                                      }
+                                                                    } else {
+                                                                      return;
                                                                     }
 
-                                                                    safeSetState(
-                                                                        () {});
+                                                                    if (shouldSetState) {
+                                                                      safeSetState(
+                                                                          () {});
+                                                                    }
                                                                   },
                                                                   text:
-                                                                      'Validar Código',
+                                                                      'Excluir meu cadastro',
                                                                   options:
                                                                       FFButtonOptions(
                                                                     width:
@@ -698,8 +728,9 @@ class _TokenVerificadoWidgetState extends State<TokenVerificadoWidget>
                                                                             0.0,
                                                                             0.0,
                                                                             0.0),
-                                                                    color: const Color(
-                                                                        0xFF39D271),
+                                                                    color: FlutterFlowTheme.of(
+                                                                            context)
+                                                                        .error,
                                                                     textStyle: FlutterFlowTheme.of(
                                                                             context)
                                                                         .titleSmall
@@ -723,7 +754,62 @@ class _TokenVerificadoWidgetState extends State<TokenVerificadoWidget>
                                                                     borderRadius:
                                                                         BorderRadius.circular(
                                                                             40.0),
+                                                                    hoverColor:
+                                                                        const Color(
+                                                                            0xFF39D271),
                                                                   ),
+                                                                ),
+                                                              ),
+                                                              FFButtonWidget(
+                                                                onPressed:
+                                                                    () async {
+                                                                  context.goNamed(
+                                                                      'Home');
+                                                                },
+                                                                text: 'Voltar',
+                                                                options:
+                                                                    FFButtonOptions(
+                                                                  width: 200.0,
+                                                                  height: 44.0,
+                                                                  padding:
+                                                                      const EdgeInsetsDirectional
+                                                                          .fromSTEB(
+                                                                          18.0,
+                                                                          0.0,
+                                                                          18.0,
+                                                                          0.0),
+                                                                  iconPadding:
+                                                                      const EdgeInsetsDirectional
+                                                                          .fromSTEB(
+                                                                          0.0,
+                                                                          0.0,
+                                                                          0.0,
+                                                                          0.0),
+                                                                  color: const Color(
+                                                                      0xE91881F6),
+                                                                  textStyle: FlutterFlowTheme.of(
+                                                                          context)
+                                                                      .titleSmall
+                                                                      .override(
+                                                                        fontFamily:
+                                                                            'Readex Pro',
+                                                                        color: FlutterFlowTheme.of(context)
+                                                                            .primaryText,
+                                                                        letterSpacing:
+                                                                            0.0,
+                                                                      ),
+                                                                  elevation:
+                                                                      3.0,
+                                                                  borderSide:
+                                                                      const BorderSide(
+                                                                    color: Colors
+                                                                        .transparent,
+                                                                    width: 1.0,
+                                                                  ),
+                                                                  borderRadius:
+                                                                      BorderRadius
+                                                                          .circular(
+                                                                              40.0),
                                                                 ),
                                                               ),
                                                             ],

@@ -14,10 +14,10 @@ jobs:
 
     steps:
       - name: Checkout code
-        uses: actions/checkout@v3
+        uses: actions/checkout@v2
 
       - name: Set up Flutter
-        uses: subosito/flutter-action@v3
+        uses: subosito/flutter-action@v2
         with:
           flutter-version: '3.24.3'  # Use a versão que você está utilizando
 
@@ -29,6 +29,9 @@ jobs:
 
       - name: Build iOS .ipa file
         run: flutter build ipa --no-codesign
+        
+      - name: List build directory (Debugging)
+        run: ls -la build/ios/ipa/
 
       - name: Upload build artifacts
         uses: actions/upload-artifact@v4  # Atualizado para a versão v4
